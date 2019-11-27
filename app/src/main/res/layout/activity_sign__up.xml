@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Sign_UpActivity"
+    android:weightSum="10"
+    android:padding="50dp"
+    android:background="@drawable/background"
+    >
+    <TextView
+        android:id="@+id/textViewAutoLink"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center_horizontal"
+        android:text="회원가입"
+        android:textSize="40sp"
+        android:color="@color/paint_color"
+        android:fontFamily="@font/font1"
+        android:textColor="@android:color/white" />
+
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:padding="5dp">
+        <EditText
+            android:gravity="center"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:hint=" NickName"
+            android:id="@+id/et_nickname"
+            android:drawableStart="@drawable/id_image"
+            android:drawableLeft="@drawable/id_image"
+            android:layout_marginRight="10dp"
+            />
+        <Button
+
+
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="확인"
+            android:textStyle="bold"
+            android:id="@+id/btn_nickname" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:padding="5dp">
+        <EditText
+            android:gravity="center"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:ems="10"
+            android:hint=" ID"
+            android:id="@+id/et_userID"
+            android:drawableStart="@drawable/id_image"
+            android:drawableLeft="@drawable/id_image"/>
+
+        <Button
+
+
+            android:id="@+id/btn_userID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:textStyle="bold"
+            android:text="확인" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:padding="5dp">
+        <EditText
+            android:gravity="center"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:hint=" Password"
+            android:id="@+id/et_Password"
+            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:drawableLeft="@drawable/ic_lock_black_24dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:padding="5dp">
+        <EditText
+            android:gravity="center"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="10"
+            android:hint=" Password"
+            android:id="@+id/et_Password2"
+            android:drawableStart="@drawable/ic_lock_black_24dp"
+            android:drawableLeft="@drawable/ic_lock_black_24dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:padding="5dp">
+        <EditText
+            android:gravity="center"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:hint=" Email"
+            android:drawableStart="@drawable/ic_email_black_24dp"
+            android:drawableLeft="@drawable/ic_email_black_24dp"
+            android:id="@+id/et_userEmail" />
+        <Button
+
+
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="전송"
+            android:textStyle="bold"
+            android:id="@+id/btn_userEmail" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:padding="5dp">
+        <EditText
+            android:gravity="center"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:ems="10"
+            android:hint=" 인증번호"
+            android:drawableStart="@drawable/security_key"
+            android:drawableLeft="@drawable/security_key"
+            android:id="@+id/et_userMailcode" />
+        <Button
+
+
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:text="확인"
+            android:textStyle="bold"
+            android:id="@+id/btn_userEmailcode" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:padding="20dp">
+        <Button
+
+
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="확인"
+            android:textStyle="bold"
+            android:id="@+id/btn_join" />
+
+        <Button
+
+
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="취소"
+            android:textStyle="bold"
+            android:id="@+id/btn_cancel" />
+    </LinearLayout>
+</LinearLayout>

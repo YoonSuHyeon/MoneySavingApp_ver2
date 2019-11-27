@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_weight="1"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="@drawable/background"
+    >
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_weight="0.2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical">
+        <TextView
+
+            android:color="@color/paint_color"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/font1"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="로그인"
+            android:textSize="40sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:weightSum="1"
+
+        android:layout_weight="0.1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal">
+
+
+
+        <EditText
+            android:drawableStart="@drawable/id_image"
+            android:drawableLeft="@drawable/id_image"
+            android:layout_weight="1"
+            android:id="@+id/et_id"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:hint="아이디를 입력하세요"
+            android:textSize="20dp"
+            android:inputType="text"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+    <LinearLayout
+
+
+        android:layout_weight="0.75"
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:weightSum="1"
+            android:layout_weight="0.1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal">
+
+
+
+            <EditText
+                android:drawableStart="@drawable/password"
+                android:drawableLeft="@drawable/password"
+                android:layout_weight="1"
+                android:id="@+id/et_password"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:hint="비밀번호를 입력하세요"
+                android:textSize="20dp"
+                android:inputType="textPassword"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_weight="0.2"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            >
+
+            <Button
+
+                android:id="@+id/btn_ok"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:text="확인"
+                android:textSize="20dp"
+                android:textStyle="bold"
+
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:weightSum="1"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_weight="0.25"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="ID/PW찾기"
+                android:textSize="20dp"
+                android:id="@+id/tv_find"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

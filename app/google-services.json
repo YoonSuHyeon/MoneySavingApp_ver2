@@ -1,0 +1,85 @@
+{
+  "project_info": {
+    "project_number": "645977293259",
+    "firebase_url": "https://moneysavingapp-b709b.firebaseio.com",
+    "project_id": "moneysavingapp-b709b",
+    "storage_bucket": "moneysavingapp-b709b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645977293259:android:c0fd08a6394da0ed2eb64e",
+        "android_client_info": {
+          "package_name": "com.example.moneysavingapp_ver2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "645977293259-lmdlv63inkf6epbmavg1jtor8versint.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moneysavingapp_ver2",
+            "certificate_hash": "356252bbf33819a9bd5fc5f4e5a9c886b56cdbcf"
+          }
+        },
+        {
+          "client_id": "645977293259-1llk5tpqe1k9hjqt4ur1epqph42240su.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBolnz5m7osUeuO6w_6CQZCpPP6kf5PBLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "645977293259-1llk5tpqe1k9hjqt4ur1epqph42240su.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645977293259:android:fef41978bcd7ecc02eb64e",
+        "android_client_info": {
+          "package_name": "com.mxn.soul.flowingdrawer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "645977293259-itfkhc3pgqkt97nettqm6d1bnl48qlun.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mxn.soul.flowingdrawer",
+            "certificate_hash": "356252bbf33819a9bd5fc5f4e5a9c886b56cdbcf"
+          }
+        },
+        {
+          "client_id": "645977293259-1llk5tpqe1k9hjqt4ur1epqph42240su.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBolnz5m7osUeuO6w_6CQZCpPP6kf5PBLI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "645977293259-1llk5tpqe1k9hjqt4ur1epqph42240su.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
