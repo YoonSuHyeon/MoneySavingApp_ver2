@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class PagerAdapter extends android.support.v4.view.PagerAdapter {
+public class PagerAdapter extends androidx.viewpager.widget.PagerAdapter {
 
     private Context context = null;
     private ArrayList<Integer> imageList;
