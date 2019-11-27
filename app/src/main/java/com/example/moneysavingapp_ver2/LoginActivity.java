@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (checklogin == 1) {
                     Toast.makeText(LoginActivity.this, "로그인이 되었습니다.", Toast.LENGTH_SHORT).show();
 
-                    Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent loginIntent = new Intent(LoginActivity.this, NaviActivity.class);
                     loginIntent.putExtra("uid", dbparent); // 유저의 UID를 인텐트로 보내기 위함
                     startActivity(loginIntent);
                 }
