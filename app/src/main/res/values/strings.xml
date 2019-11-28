@@ -7,7 +7,11 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
+    <string name="help">도움말</string>
+    <string name="logout">로그아웃</string>
+    <string name="quetion">문의하기</string>
+    <string name="make">만든사람들</string>
+    <string name="ver">버전정보</string>
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
