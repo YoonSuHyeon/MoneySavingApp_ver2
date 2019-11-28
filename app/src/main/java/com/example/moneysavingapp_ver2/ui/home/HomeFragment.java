@@ -21,7 +21,7 @@ import com.example.moneysavingapp_ver2.R;
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
-
+    private String uid,nickname;
     private RecyclerView recyclerView;
     private Notice_Adapter adapter;
     private ArrayList<Notice_Item> list = new ArrayList<>();
@@ -32,6 +32,7 @@ public class HomeFragment extends Fragment {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_home,container,false);
 
         recyclerView=(RecyclerView)rootView.findViewById(R.id.recycler_view);
+
 
         list.add(new Notice_Item("gdgd","gdgd"));
         list.add(new Notice_Item("ㅋㅋㅋ","gdgd"));

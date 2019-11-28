@@ -1,6 +1,7 @@
 package com.example.moneysavingapp_ver2.ui.tools;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +27,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class ToolsFragment extends Fragment {
+    private  String uid,nickname;
     private ArrayList<ChatRoom> roomlist;
-    private ArrayList<String> roomuserlist;
     private ToolsViewModel toolsViewModel;
     private RecyclerView recyclerView;
     private ChatRoomAdapter cr_Adapter;
@@ -36,19 +37,15 @@ public class ToolsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         roomlist= new ArrayList<ChatRoom>();
-        roomuserlist = new ArrayList<String>();
-        roomuserlist.add("윤수현");
-        roomlist.add(new ChatRoom("방",roomuserlist));
-        roomlist.add(new ChatRoom("방2",roomuserlist));
-
         database= FirebaseDatabase.getInstance().getReference();
-        DatabaseReference table_user = database.child("Chats");
 
-        database.child("Roomname").setValue("방1");
-        database.child("Roomname").child("방1").child("Conversation").push().setValue(new Message("휴","윤수현"));
+        roomlist.add(new ChatRoom("방"));
+        roomlist.add(new ChatRoom("방2"));
 
-        database.child("Roomname").child("방1").child("Member").push().setValue("참여인원1");
-
+        Bundle bundle = getArguments();
+        uid=bundle.getString("uid");
+        nickname=bundle.getString("nickname");
+        Log.d("assss",uid+":"+nickname);
 
         toolsViewModel =
                 ViewModelProviders.of(this).get(ToolsViewModel.class);
@@ -71,12 +68,7 @@ public class ToolsFragment extends Fragment {
         });
 
 
-        bt_roomcreat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
 
         return root;
     }

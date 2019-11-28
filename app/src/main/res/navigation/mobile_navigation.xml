@@ -15,19 +15,43 @@
         android:id="@+id/nav_gallery"
         android:name="com.example.moneysavingapp_ver2.ui.gallery.GalleryFragment"
         android:label="친구목록"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_gallery" >
+        <argument
+            android:name="uid"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="nickname"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.example.moneysavingapp_ver2.ui.slideshow.SlideshowFragment"
         android:label="나의 채팅방"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_slideshow" >
+        <argument
+            android:name="uid"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="nickname"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_tools"
         android:name="com.example.moneysavingapp_ver2.ui.tools.ToolsFragment"
         android:label="전체 채팅방"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_tools" >
+        <argument
+            android:name="uid"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="nickname"
+            app:argType="string" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_share"

@@ -34,6 +34,9 @@ public class HomeActivity extends AppCompatActivity {
         //viewPager.setPageMargin(margin/2);
         viewPager.setAdapter(new PagerAdapter(this,imageList));
 
+
+
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

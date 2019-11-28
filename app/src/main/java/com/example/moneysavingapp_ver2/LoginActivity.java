@@ -16,6 +16,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.moneysavingapp_ver2.ui.gallery.GalleryFragment;
+import com.example.moneysavingapp_ver2.ui.slideshow.SlideshowFragment;
+import com.example.moneysavingapp_ver2.ui.tools.ToolsFragment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,7 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 
 
 public class LoginActivity extends AppCompatActivity {
-
+    private String nickname;
     private String dbparent;
     private Button ok;
     private TextView find;
@@ -44,6 +47,13 @@ public class LoginActivity extends AppCompatActivity {
 
 
         database = FirebaseDatabase.getInstance().getReference();
+
+
+
+
+
+
+
         ok.setOnClickListener(new View.OnClickListener() {//확인 버튼을 눌렀을때
             @Override
             public void onClick(View view) {
@@ -78,6 +88,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         if (checkId.equals(dbId) && checkpassword.equals(dbpassword)) {
                             dbparent = da.getKey();
+                            nickname =da.child("nickname").getValue(String.class);
                             checklogin = 1;
                             break;
 
@@ -87,8 +98,11 @@ public class LoginActivity extends AppCompatActivity {
                 if (checklogin == 1) {
                     Toast.makeText(LoginActivity.this, "로그인이 되었습니다.", Toast.LENGTH_SHORT).show();
 
+
+
                     Intent loginIntent = new Intent(LoginActivity.this, NaviActivity.class);
                     loginIntent.putExtra("uid", dbparent); // 유저의 UID를 인텐트로 보내기 위함
+                    loginIntent.putExtra("nickname",nickname);
                     startActivity(loginIntent);
                 }
                 else {

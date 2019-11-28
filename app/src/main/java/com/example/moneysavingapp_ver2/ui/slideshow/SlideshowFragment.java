@@ -22,18 +22,21 @@ import com.example.moneysavingapp_ver2.R;
 import java.util.ArrayList;
 
 public class SlideshowFragment extends Fragment {
+    private String uid,nickname;
     private ArrayList<ChatRoom> roomlist;
-    private ArrayList<String> roomuserlist;
     private SlideshowViewModel slideshowViewModel;
     private RecyclerView recyclerView;
     private ChatRoomAdapter cr_Adapter;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         roomlist= new ArrayList<ChatRoom>();
-        roomuserlist = new ArrayList<String>();
-        roomuserlist.add("윤수현");
-        roomlist.add(new ChatRoom("방",roomuserlist));
-        roomlist.add(new ChatRoom("방2",roomuserlist));
+        roomlist.add(new ChatRoom("방"));
+        roomlist.add(new ChatRoom("방2"));
+
+        Bundle bundle = getArguments();
+        uid=bundle.getString("uid");
+        nickname=bundle.getString("nickname");
+
 
         slideshowViewModel =
                 ViewModelProviders.of(this).get(SlideshowViewModel.class);

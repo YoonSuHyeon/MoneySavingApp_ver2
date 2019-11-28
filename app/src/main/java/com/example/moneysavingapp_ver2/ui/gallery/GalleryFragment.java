@@ -15,7 +15,7 @@ import com.example.moneysavingapp_ver2.R;
 import java.util.ArrayList;
 
 public class GalleryFragment extends Fragment {
-
+    private String uid,nickname;
     private RecyclerView recyclerView;
     private Friend_Adapter adapter;
     private ArrayList<FriendList_item> list = new ArrayList<>();
@@ -24,6 +24,9 @@ public class GalleryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_gallery,container,false);
+        Bundle bundle = getArguments();
+        uid=bundle.getString("uid");
+        nickname=bundle.getString("nickname");
 
         recyclerView=(RecyclerView)rootView.findViewById(R.id.recycler_view);
 
