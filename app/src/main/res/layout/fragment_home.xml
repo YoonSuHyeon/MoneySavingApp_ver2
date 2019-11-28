@@ -10,27 +10,24 @@
     >
 
     <LinearLayout
+        android:layout_weight="0.1"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
         android:orientation="vertical">
         <TextView
-            android:layout_weight="0.2"
             android:color="@color/paint_color"
             android:textColor="@android:color/white"
             android:fontFamily="@font/font1"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:text="공지사항"
             android:textSize="30sp"/>
-
-
-
         </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="1"
+        android:layout_weight="0.9"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
@@ -39,9 +36,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         />
-
     </LinearLayout>
 
 </LinearLayout>
