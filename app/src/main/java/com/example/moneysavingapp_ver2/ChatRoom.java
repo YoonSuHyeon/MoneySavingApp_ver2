@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class ChatRoom {
 
-    String roomname;
-    ArrayList<String> roomuser;
+    String roomname;//방이름
+    ArrayList<String> roomuser; //사람들닉네임
 
     public ChatRoom(String roomname, ArrayList<String> roomuser) {
         this.roomname = roomname;
