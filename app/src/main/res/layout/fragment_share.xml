@@ -5,13 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10"
+    android:weightSum="1"
     android:background="@drawable/background"
     >
     <LinearLayout
-        android:weightSum="1"
+        android:layout_weight="0.1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_gravity="center"
         android:orientation="horizontal"
         >
@@ -39,9 +39,9 @@
         android:background="#A8C4F1"
         android:layout_marginLeft="30dp"/>
     <LinearLayout
-        android:weightSum="1"
+        android:layout_weight="0.1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_gravity="left"
         android:orientation="horizontal"
         >
@@ -65,6 +65,9 @@
         android:layout_height="3dp"
         android:background="#A8C4F1"
         android:layout_marginLeft="30dp"/>
-
+<LinearLayout
+    android:layout_weight="0.8"
+    android:layout_width="wrap_content"
+    android:layout_height="0dp"/>
 
 </LinearLayout>

@@ -8,12 +8,12 @@
     android:weightSum="1"
     >
     <LinearLayout
+        android:layout_weight="0.1"
         android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
         android:orientation="vertical">
         <EditText
-            android:shadowRadius="10000"
             android:drawableStart="@drawable/search"
             android:drawableLeft="@drawable/search"
             android:id="@+id/search_id"
@@ -29,7 +29,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_weight="1"
+        android:layout_weight="0.9"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
