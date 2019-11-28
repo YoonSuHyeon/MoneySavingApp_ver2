@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category">
+        <item>카테고리1</item>
+        <item>카테고리1</item>
+        <item>카테고리1</item>
+        <item>카테고리1</item>
+        <item>카테고리1</item>
+        <item>카테고리1</item>
+        <item>카테고리1</item>
+        <item>카테고리1</item>
+        <item>카테고리1</item>
+        <item>카테고리1</item>
+    </string-array>
+</resources>

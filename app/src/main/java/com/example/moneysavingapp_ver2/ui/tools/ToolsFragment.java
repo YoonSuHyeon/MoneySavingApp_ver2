@@ -1,11 +1,15 @@
 package com.example.moneysavingapp_ver2.ui.tools;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -19,6 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moneysavingapp_ver2.ChatRoom;
 import com.example.moneysavingapp_ver2.ChatRoomAdapter;
+
+import com.example.moneysavingapp_ver2.FragmentDialog_Room_Create;
 import com.example.moneysavingapp_ver2.Message;
 import com.example.moneysavingapp_ver2.R;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +40,20 @@ public class ToolsFragment extends Fragment {
     private ChatRoomAdapter cr_Adapter;
     private Button bt_roomcreat;
     private DatabaseReference database;
+    String category;
+
+    /*@Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getActivity().requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getActivity().setContentView(R.layout.create_room);
+
+        Spinner spinner = getActivity().findViewById(R.id.spinner);
+
+
+
+    }*/
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         roomlist= new ArrayList<ChatRoom>();
@@ -49,10 +69,26 @@ public class ToolsFragment extends Fragment {
 
         toolsViewModel =
                 ViewModelProviders.of(this).get(ToolsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_tools, container, false);
+        final View root = inflater.inflate(R.layout.fragment_tools, container, false);
+        bt_roomcreat = (Button) root.findViewById(R.id.bt_roomcreat);
+        bt_roomcreat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("tag","hihihihi");
+
+                FragmentDialog_Room_Create dialog_room_create = new FragmentDialog_Room_Create();
+
+                dialog_room_create.show(getActivity().getSupportFragmentManager(),"tag");
+
+            }
+        });
        // final TextView textView = root.findViewById(R.id.text_tools);
+
+
+
+        //---------------------------------------------------------------------------------------------------
         recyclerView=root.findViewById(R.id.reclv_mychat);
-        bt_roomcreat=root.findViewById(R.id.bt_roomcreat);
+
 
         cr_Adapter =new ChatRoomAdapter(roomlist);
 
