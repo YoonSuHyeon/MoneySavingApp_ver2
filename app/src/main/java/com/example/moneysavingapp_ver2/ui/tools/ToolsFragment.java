@@ -40,7 +40,7 @@ public class ToolsFragment extends Fragment {
     private ChatRoomAdapter cr_Adapter;
     private Button bt_roomcreat;
     private DatabaseReference database;
-    String category;
+    String category,roomname;
 
     /*@Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,14 +71,28 @@ public class ToolsFragment extends Fragment {
                 ViewModelProviders.of(this).get(ToolsViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_tools, container, false);
         bt_roomcreat = (Button) root.findViewById(R.id.bt_roomcreat);
+
         bt_roomcreat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("tag","hihihihi");
 
-                FragmentDialog_Room_Create dialog_room_create = new FragmentDialog_Room_Create();
+                FragmentDialog_Room_Create dialog_room_create =new FragmentDialog_Room_Create();
 
-                dialog_room_create.show(getActivity().getSupportFragmentManager(),"tag");
+                dialog_room_create.show(getFragmentManager(),"approval");
+                dialog_room_create.setDialogResult(new FragmentDialog_Room_Create.OnMyDialogResult() {
+
+                    @Override
+                    public void finish(String result,String result1) {
+                        Log.d("아아아",result);
+                        Log.d("이이이이",result1);
+                        // result에 dialog에서 보낸값이 저장되어 돌아옵니다.
+
+
+
+                    }
+
+                });
 
             }
         });
