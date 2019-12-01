@@ -91,6 +91,7 @@ public class ToolsFragment extends Fragment {
                         result="서울";
                         result1="방이름";
                         if(result!=null&& result1!=null){ //카테고리 ,방이름이 null이 아닐 경우  방을 생성해준다.
+                            database = FirebaseDatabase.getInstance().getReference();
                             database =database.child("Chats").child("서울").push();
                             database.child("Name").setValue(result1);
                             database.child("Member").setValue(nickname);
