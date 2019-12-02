@@ -34,6 +34,15 @@ public class FragmentDialog_Room_Create extends DialogFragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
+        params.width = 800;
+        params.height = 800;
+        getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams)params);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
