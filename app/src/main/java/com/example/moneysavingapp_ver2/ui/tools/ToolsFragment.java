@@ -40,12 +40,12 @@ import java.util.ArrayList;
 public class ToolsFragment extends Fragment {
     private  String uid,nickname;
     private ArrayList<ChatRoom> roomlist;
-
+    private ToolsViewModel toolsViewModel;
     private RecyclerView recyclerView;
     private ChatRoomAdapter cr_Adapter;
     private Button bt_roomcreat;
     private DatabaseReference database;
-    String category,roomname;
+    String category,room_name;
 
     /*@Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -58,6 +58,7 @@ public class ToolsFragment extends Fragment {
 
 
     }*/
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
@@ -71,48 +72,53 @@ public class ToolsFragment extends Fragment {
         nickname=bundle.getString("nickname");
         Log.d("assss",roomlist.toString());
 
-
+        toolsViewModel =
+                ViewModelProviders.of(this).get(ToolsViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_tools, container, false);
         bt_roomcreat = (Button) root.findViewById(R.id.bt_roomcreat);
-
         bt_roomcreat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("tag","hihihihi");
 
-                FragmentDialog_Room_Create dialog_room_create =new FragmentDialog_Room_Create();
+                FragmentDialog_Room_Create dialog_room_create = new FragmentDialog_Room_Create();
 
-                dialog_room_create.show(getFragmentManager(),"approval");
-                dialog_room_create.setDialogResult(new FragmentDialog_Room_Create.OnMyDialogResult() {
+                dialog_room_create.show(getActivity().getSupportFragmentManager(),"approval");
+                dialog_room_create.setResult(new FragmentDialog_Room_Create.DialogResult() {
+
 
                     @Override
                     public void finish(String result,String result1) {
                         //테스트
-                        result="서울";
-                        result1="방이름";
+                        room_name = result;
+                        category = result1;
+
                         if(result!=null&& result1!=null){ //카테고리 ,방이름이 null이 아닐 경우  방을 생성해준다.
                             database = FirebaseDatabase.getInstance().getReference();
-                            database =database.child("Chats").child("서울").push();
-                            database.child("Name").setValue(result1);
-                            database.child("Member").setValue(nickname);
+                            database =database.child("Chats").child(result1).push();
+                            database.child("Name").setValue(room_name);
+                            database.child("Member").push().setValue(nickname);
                             Message message = new Message("방이 개설되었습니다.",uid);
                             database.child("Conversation").push().setValue(message);
                             database =FirebaseDatabase.getInstance().getReference();
-                            database.child("Users").child(uid).child("myroom").push().setValue(result1);
+                            database.child("Users").child(uid).child("myroom").push().setValue(room_name);
                         }
-                        Log.d("아아아",result);
-                        Log.d("이이이이",result1);
+                        //Log.d("아아아",result);
+                        //Log.d("이이이이",result1);
                         // result에 dialog에서 보낸값이 저장되어 돌아옵니다.
 
 
 
                     }
-
                 });
+
+
+
+
 
             }
         });
-
+       // final TextView textView = root.findViewById(R.id.text_tools);
 
 
 
@@ -155,9 +161,6 @@ public class ToolsFragment extends Fragment {
 
         };
         database.addListenerForSingleValueEvent(vListener);
-
-
-
 
 
         return root;

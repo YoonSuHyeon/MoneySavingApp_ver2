@@ -2,14 +2,14 @@
 <resources>
     <string-array name="category">
         <item>카테고리1</item>
-        <item>카테고리1</item>
-        <item>카테고리1</item>
-        <item>카테고리1</item>
-        <item>카테고리1</item>
-        <item>카테고리1</item>
-        <item>카테고리1</item>
-        <item>카테고리1</item>
-        <item>카테고리1</item>
-        <item>카테고리1</item>
+        <item>카테고리2</item>
+        <item>카테고리3</item>
+        <item>카테고리4</item>
+        <item>카테고리5</item>
+        <item>카테고리6</item>
+        <item>카테고리7</item>
+        <item>카테고리8</item>
+        <item>카테고리9</item>
+        <item>카테고리10</item>
     </string-array>
 </resources>

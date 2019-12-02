@@ -7,29 +7,27 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
+import com.example.moneysavingapp_ver2.ui.tools.ToolsFragment;
+
 public class FragmentDialog_Room_Create extends DialogFragment {
     Button btn_roomCancel;
     Button btn_roomOk;
-    EditText room_name;
-    OnMyDialogResult mDialogResult;
-    private Fragment fragment;
-    static  FragmentDialog_Room_Create newInstance(String category,String roomname){
-        FragmentDialog_Room_Create f =new FragmentDialog_Room_Create();
+    EditText et_roomname,et_spinnerResult;
+    Spinner sp_spinner;
 
-        Bundle args = new Bundle();
-        args.putString("category",category);
-        args.putString("roomname",roomname);
-        f.setArguments(args);
-        return  f;
-    }
+    private Fragment fragment;
+    DialogResult result;
     public FragmentDialog_Room_Create() {
 
     }
@@ -43,62 +41,64 @@ public class FragmentDialog_Room_Create extends DialogFragment {
         getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams)params);
     }
 
+
+
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
         View view =inflater.inflate(R.layout.create_room,container,false);
 
-        btn_roomOk =view.findViewById(R.id.btn_roomOk);
-        btn_roomCancel =view.findViewById(R.id.btn_roomCancel);
-        room_name=view.findViewById(R.id.room_name);
+        //Window window = view.getWindow();
+        //window.setLayout(300,200);
 
+        fragment = getActivity().getSupportFragmentManager().findFragmentByTag("approval");
+        btn_roomOk = view.findViewById(R.id.btn_roomOk);
+        et_spinnerResult=view.findViewById(R.id.et_spinner_result);
+        et_roomname = view.findViewById(R.id.room_name);
+        sp_spinner = view.findViewById(R.id.spinner);
 
-
+        sp_spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                et_spinnerResult.setText(sp_spinner.getItemAtPosition(position).toString());
+            }
+        });
         btn_roomOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if( mDialogResult != null ){
 
-                    mDialogResult.finish(room_name.getText().toString(),"카테고리");
+                if(fragment != null){
+                    if(result != null){
+                        result.finish(et_roomname.getText().toString(),sp_spinner.getSelectedItem().toString());
 
+                        Log.d("spinner",sp_spinner.getSelectedItem().toString());
+
+                        DialogFragment dialogFragment = (DialogFragment)fragment;
+                        dialogFragment.dismiss();
+                    }
                 }
-
-               dismiss();
-
-
-
             }
         });
-
+        btn_roomCancel =view.findViewById(R.id.btn_roomCancel);
         btn_roomCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("tag","hihizzzzzzzzzzhih");
-                dismiss();
+                DialogFragment dialogFragment = (DialogFragment)fragment;
+                dialogFragment.dismiss();
             }
         });
-        fragment = getActivity().getSupportFragmentManager().findFragmentByTag("approval");
-
 
         return view;
     }
-    public void setDialogResult(OnMyDialogResult dialogResult){
-
-        mDialogResult = dialogResult;
-
+    public void setResult(DialogResult result){
+        this.result=result;
     }
 
-
-
-    public interface OnMyDialogResult{
-
-        void finish(String result,String result1);
-
+    public interface DialogResult{
+        void finish(String result,String result2);
     }
-
-
-
-
 }
-
