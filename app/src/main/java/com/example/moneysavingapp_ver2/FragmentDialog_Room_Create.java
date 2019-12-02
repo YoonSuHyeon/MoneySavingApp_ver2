@@ -36,7 +36,7 @@ public class FragmentDialog_Room_Create extends DialogFragment {
     public void onResume() {
         super.onResume();
         ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
-        params.width = 800;
+        params.width = 1000;
         params.height = 800;
         getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams)params);
     }
@@ -59,13 +59,18 @@ public class FragmentDialog_Room_Create extends DialogFragment {
         et_spinnerResult=view.findViewById(R.id.et_spinner_result);
         et_roomname = view.findViewById(R.id.room_name);
         sp_spinner = view.findViewById(R.id.spinner);
-
-        sp_spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        sp_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 et_spinnerResult.setText(sp_spinner.getItemAtPosition(position).toString());
             }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
+
         btn_roomOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +91,6 @@ public class FragmentDialog_Room_Create extends DialogFragment {
         btn_roomCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("tag","hihizzzzzzzzzzhih");
                 DialogFragment dialogFragment = (DialogFragment)fragment;
                 dialogFragment.dismiss();
             }
