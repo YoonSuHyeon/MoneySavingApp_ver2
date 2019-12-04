@@ -27,6 +27,7 @@
 
 
         <TextView
+            android:fontFamily="@font/font1"
             android:background="@drawable/item_home_color"
             android:layout_marginLeft="0dp"
             android:id="@+id/tv_content"
@@ -38,9 +39,10 @@
 
 
         <View
+            android:fontFamily="@font/gyufont"
             android:layout_width="match_parent"
             android:layout_height="4dp"
-            android:background="#D3DBE6"
+            android:background="#4798CA"
             android:layout_alignParentBottom="true"
             />
 
