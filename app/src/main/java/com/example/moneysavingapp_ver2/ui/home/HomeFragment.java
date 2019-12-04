@@ -1,6 +1,7 @@
 package com.example.moneysavingapp_ver2.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.moneysavingapp_ver2.Notice_Adapter;
 import com.example.moneysavingapp_ver2.Notice_Item;
 import com.example.moneysavingapp_ver2.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -26,20 +32,46 @@ public class HomeFragment extends Fragment {
     private Notice_Adapter adapter;
     private ArrayList<Notice_Item> list = new ArrayList<>();
     private HomeViewModel homeViewModel;
-
+    private DatabaseReference database;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_home,container,false);
 
         recyclerView=(RecyclerView)rootView.findViewById(R.id.recycler_view);
 
+        database = FirebaseDatabase.getInstance().getReference();
+        database = database.child("Notice");
 
-        list.add(new Notice_Item("gdgd","gdgd"));
-        list.add(new Notice_Item("ㅋㅋㅋ","gdgd"));
-        list.add(new Notice_Item("gㅅㅄㅂ","gdgd"));
-        adapter = new Notice_Adapter(list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
+
+        ValueEventListener vListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list.clear();
+                for(DataSnapshot da : dataSnapshot.getChildren()){
+
+                    //list.add(da.getValue(Notice_Item.class));
+                    //list.add(da.getValue());
+                    Log.d("zxcvzxcv",da.getValue().toString());
+                    list.add(da.getValue(Notice_Item.class));
+                }
+
+                adapter =new Notice_Adapter(list);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        database.addListenerForSingleValueEvent(vListener);
+
+
+
+
+
+
         //homeViewModel =
        //         ViewModelProviders.of(this).get(HomeViewModel.class);
         //View root = inflater.inflate(R.layout.fragment_home, container, false);

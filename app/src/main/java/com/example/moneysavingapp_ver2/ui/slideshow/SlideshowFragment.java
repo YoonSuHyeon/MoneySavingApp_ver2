@@ -1,6 +1,7 @@
 package com.example.moneysavingapp_ver2.ui.slideshow;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -37,33 +39,26 @@ public class SlideshowFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         roomlist= new ArrayList<ChatRoom>();
-        roomlist.add(new ChatRoom("방"));
-        roomlist.add(new ChatRoom("방2"));
+
 
         Bundle bundle = getArguments();
         uid=bundle.getString("uid");
         nickname=bundle.getString("nickname");
         database= FirebaseDatabase.getInstance().getReference();
-        database = database.child(uid).child("myroom");
-        ChildEventListener childEventListener= new ChildEventListener() {
+        database = database.child("Users").child(uid).child("myroom");
+        ValueEventListener valueEventListener =new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+              roomlist.clear();
+                for(DataSnapshot da : dataSnapshot.getChildren()){
+                  roomlist.add(new ChatRoom(da.getValue().toString()));
+              }
+                cr_Adapter =new ChatRoomAdapter(roomlist);
 
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+                recyclerView.setLayoutManager(mLayoutManager);
+                recyclerView.setItemAnimator(new DefaultItemAnimator());
+                recyclerView.setAdapter(cr_Adapter);
             }
 
             @Override
@@ -71,7 +66,8 @@ public class SlideshowFragment extends Fragment {
 
             }
         };
-        database.addChildEventListener(childEventListener);
+
+        database.addValueEventListener(valueEventListener);
 
 
 
@@ -82,12 +78,7 @@ public class SlideshowFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
        // final TextView textView = root.findViewById(R.id.text_slideshow);
         recyclerView=root.findViewById(R.id.reclv_mychat);
-        cr_Adapter =new ChatRoomAdapter(roomlist);
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(cr_Adapter);
 
 
 
