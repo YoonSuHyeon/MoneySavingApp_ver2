@@ -15,7 +15,7 @@
         android:includeFontPadding="false"
         android:layout_weight="0.2"
         android:text="전체 채팅방 목록"
-        android:textSize="50dp"
+        android:textSize="30sp"
         android:textColor="@android:color/white"
         android:gravity="center"
         android:textStyle="bold" />

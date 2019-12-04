@@ -6,7 +6,7 @@
     android:padding="8dp"
     android:layout_marginBottom="5dp"
     android:weightSum="1"
-    android:background="@android:color/white">
+    android:background="@drawable/backgroundgyu">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,14 +14,18 @@
         android:orientation="vertical"
         android:gravity="center_vertical">
 
+
         <TextView
             android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:includeFontPadding="false"
             android:textSize="30sp"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/gyufont"
+            android:drawableStart="@drawable/friend"
+            android:drawableLeft="@drawable/friend"
+            android:background="@drawable/backgroundgyu"
 
 
 
