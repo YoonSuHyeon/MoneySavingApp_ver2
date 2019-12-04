@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:layout_weight="0.3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="친구 찾기"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#E71616"/>
+
+        <LinearLayout
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_weight="0.4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="ID 또는 닉네임"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/et_findID"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0.6"
+                android:layout_width="0dp"
+                android:maxLines="1"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_gone"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:layout_weight="0.4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:text="사용자 이름"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/finded_username"
+                android:layout_weight="0.6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:textSize="15sp"
+                android:gravity="center"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/btn_friendOk"
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="OK"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btn_friendCancel"
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="CANCEL"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

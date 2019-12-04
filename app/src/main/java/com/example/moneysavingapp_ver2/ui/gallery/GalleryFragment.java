@@ -1,9 +1,12 @@
 package com.example.moneysavingapp_ver2.ui.gallery;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,6 +22,7 @@ public class GalleryFragment extends Fragment {
     private RecyclerView recyclerView;
     private Friend_Adapter adapter;
     private ArrayList<FriendList_item> list = new ArrayList<>();
+    private Button btn_findFriend;
    // private GalleryViewModel galleryViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -36,6 +40,22 @@ public class GalleryFragment extends Fragment {
         adapter = new Friend_Adapter(list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
+        btn_findFriend=rootView.findViewById(R.id.btn_findFriend);
+        btn_findFriend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("GDGD","Click");
+                FragmentDialog_findFriend dialog_find_friend = new FragmentDialog_findFriend();
+
+                dialog_find_friend.show(getActivity().getSupportFragmentManager(),"find_approval");
+                dialog_find_friend.setResult(new FragmentDialog_findFriend.DialogFindFriendResult() {
+                    @Override
+                    public void finish(String result) {
+
+                    }
+                });
+            }
+        });
         /*galleryViewModel =
                 ViewModelProviders.of(this).get(GalleryViewModel.class);
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);

@@ -62,7 +62,7 @@ public class ToolsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        database= FirebaseDatabase.getInstance().getReference();
+        database= FirebaseDatabase.getInstance().getReference(); //주소 연결해서 가져온거 파이어베이스
         roomlist= new ArrayList<ChatRoom>();
 
 
@@ -133,6 +133,7 @@ public class ToolsFragment extends Fragment {
         ValueEventListener vListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                roomlist.clear();
                 for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
                     for (DataSnapshot da : dataSnapshot.getChildren()) {
                         for(DataSnapshot dd :da.getChildren()){
