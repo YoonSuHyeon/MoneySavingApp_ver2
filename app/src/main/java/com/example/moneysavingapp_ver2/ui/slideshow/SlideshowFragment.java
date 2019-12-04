@@ -18,6 +18,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.moneysavingapp_ver2.ChatRoom;
 import com.example.moneysavingapp_ver2.ChatRoomAdapter;
 import com.example.moneysavingapp_ver2.R;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -27,6 +32,8 @@ public class SlideshowFragment extends Fragment {
     private SlideshowViewModel slideshowViewModel;
     private RecyclerView recyclerView;
     private ChatRoomAdapter cr_Adapter;
+    private DatabaseReference database;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         roomlist= new ArrayList<ChatRoom>();
@@ -36,6 +43,38 @@ public class SlideshowFragment extends Fragment {
         Bundle bundle = getArguments();
         uid=bundle.getString("uid");
         nickname=bundle.getString("nickname");
+        database= FirebaseDatabase.getInstance().getReference();
+        database = database.child(uid).child("myroom");
+        ChildEventListener childEventListener= new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        database.addChildEventListener(childEventListener);
+
+
+
 
 
         slideshowViewModel =
