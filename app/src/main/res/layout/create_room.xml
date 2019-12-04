@@ -3,9 +3,11 @@
     android:layout_width="350dp"
     android:layout_height="200dp"
     android:orientation="vertical"
+
     >
 
     <LinearLayout
+
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,9 +21,11 @@
             android:orientation="vertical">
 
             <TextView
+                android:fontFamily="@font/gyufont"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="방 만들기"
+                android:background="@drawable/backgroundgyu"
                 android:textStyle="bold"
                 android:textSize="30dp"
                 android:gravity="center"/>
@@ -31,9 +35,10 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="#E71616"/>
+            android:background="#164AE7"/>
 
         <LinearLayout
+
         android:layout_weight="0.25"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -41,6 +46,7 @@
         android:weightSum="1">
 
             <TextView
+                android:fontFamily="@font/gyufont"
                 android:layout_weight="0.2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -50,6 +56,7 @@
                 android:textStyle="bold"/>
 
             <EditText
+
                 android:id="@+id/room_name"
                 android:layout_marginLeft="5dp"
                 android:layout_weight="0.8"
@@ -67,6 +74,7 @@
             android:weightSum="1">
 
             <TextView
+                android:fontFamily="@font/gyufont"
                 android:layout_weight="0.2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -84,6 +92,7 @@
                 android:layout_height="wrap_content"/>
 
             <Spinner
+                android:fontFamily="@font/font1"
                 android:id="@+id/spinner"
                 android:layout_weight="0.4"
                 android:layout_width="0dp"
@@ -101,16 +110,20 @@
 
             <Button
                 android:id="@+id/btn_roomOk"
-                android:layout_weight="0.5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:fontFamily="@font/gyufont"
+                android:background="@drawable/buttongyu3"
+                android:layout_weight="0.5"
                 android:text="OK"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btn_roomCancel"
                 android:layout_weight="0.5"
                 android:layout_width="0dp"
+                android:fontFamily="@font/gyufont"
+                android:background="@drawable/buttongyu4"
                 android:layout_height="match_parent"
                 android:text="CANCEL"
                 android:textStyle="bold"/>
