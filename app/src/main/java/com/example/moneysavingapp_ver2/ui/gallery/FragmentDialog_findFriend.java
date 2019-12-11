@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,7 +52,7 @@ public class FragmentDialog_findFriend extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View view =inflater.inflate(R.layout.find_friend,container,false);
+        final View view =inflater.inflate(R.layout.find_friend,container,false);
         super.setCancelable(false);
 
 
@@ -93,6 +94,7 @@ public class FragmentDialog_findFriend extends DialogFragment {
                             }
                             if(nickname==null){
                                 finded_username.setText("등록된 닉네임이 없습니다.");
+                                btn_friendOK.setText("다시 찾기");
                             }
 
 
@@ -108,7 +110,19 @@ public class FragmentDialog_findFriend extends DialogFragment {
 
                     //레이아웃 보이게 하고 사용자가 있는지 검색해야함 검색완료후 띄워야함
                 }else{
-                    //창 닫고 검색된 사용자 이름 전달 그리고 없으면 null로 하고 버튼 이름을 다시OK로 바꿈
+                    if(btn_text.equals("다시 찾기")){
+                        layout_gone.setVisibility(View.GONE);
+                        btn_friendOK.setText("OK");
+                    }
+                    if(btn_text.equals("친구 추가")){
+                        result.finish(finded_username.getText().toString());
+                        Log.d("zzzzz",finded_username.getText().toString());
+                        Toast.makeText(view.getContext(),"친구요청을 전송했습니다.",Toast.LENGTH_SHORT).show();
+                        DialogFragment dialogFragment = (DialogFragment)fragment;
+                        dialogFragment.dismiss();
+                    }
+
+                    //창 닫고 검색된 사용자 이름 전달 그리고 없으면 변수값 null로 하고 버튼 이름을 다시OK로 바꿈
                 }
             }
         });
