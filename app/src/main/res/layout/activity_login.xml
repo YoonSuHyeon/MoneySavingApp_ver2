@@ -7,7 +7,8 @@
     tools:context=".LoginActivity"
     android:orientation="vertical"
     android:weightSum="1"
-    android:background="@drawable/background"
+    android:background="@drawable/backgroundlogin"
+
     >
 
     <LinearLayout
@@ -18,13 +19,14 @@
         android:orientation="vertical">
         <TextView
 
-            android:textColor="@android:color/white"
-            android:fontFamily="@font/font1"
+            android:textColor="#000000"
+            android:fontFamily="@font/gyufont2"
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="로그인"
-            android:textSize="30sp"/>
+            android:textStyle="bold"
+            android:textSize="40sp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -47,6 +49,7 @@
             android:gravity="center"
             android:hint="아이디를 입력하세요"
             android:textSize="20dp"
+            android:fontFamily="@font/gyufont2"
             android:inputType="text"/>
 
     </LinearLayout>
@@ -85,6 +88,7 @@
                 android:gravity="center"
                 android:hint="비밀번호를 입력하세요"
                 android:textSize="20dp"
+                android:fontFamily="@font/gyufont2"
                 android:inputType="textPassword"/>
 
 
@@ -100,12 +104,14 @@
             >
 
             <Button
-
+                style="?android:attr/borderlessButtonStyle"
                 android:id="@+id/btn_ok"
                 android:layout_width="match_parent"
                 android:layout_height="69dp"
                 android:text="확인"
                 android:textSize="20dp"
+                android:fontFamily="@font/gyufont"
+                android:background="@drawable/buttongyu5"
                 android:textStyle="bold"
 
 
@@ -128,6 +134,7 @@
                 android:layout_height="0dp"
                 android:text="ID/PW찾기"
                 android:textSize="20dp"
+                android:fontFamily="@font/gyufont2"
                 android:id="@+id/tv_find"/>
 
         </LinearLayout>

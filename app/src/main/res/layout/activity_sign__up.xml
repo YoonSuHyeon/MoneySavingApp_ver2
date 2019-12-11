@@ -8,7 +8,7 @@
     tools:context=".Sign_UpActivity"
     android:weightSum="10"
     android:padding="50dp"
-    android:background="@drawable/background"
+    android:background="@drawable/backgroundlogin"
     >
     <TextView
         android:id="@+id/textViewAutoLink"
@@ -17,10 +17,11 @@
         android:layout_marginTop="4dp"
         android:gravity="center_horizontal"
         android:text="회원가입"
-        android:textSize="30sp"
+        android:textSize="40sp"
+        android:textStyle="bold"
         android:color="@color/paint_color"
-        android:fontFamily="@font/font1"
-        android:textColor="@android:color/white" />
+        android:fontFamily="@font/gyufont2"
+        android:textColor="#000000" />
 
     <LinearLayout
         android:weightSum="1"
@@ -45,11 +46,12 @@
             android:layout_marginRight="10dp"
             />
         <Button
-
-
-            style="?android:attr/buttonStyleSmall"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:fontFamily="@font/gyufont"
+            android:background="@drawable/buttongyu5"
+            android:radius="14dp"
+            android:layout_height="match_parent"
             android:layout_weight="0.2"
             android:text="확인"
             android:textStyle="bold"
@@ -78,11 +80,13 @@
 
         <Button
 
-
+            style="?android:attr/borderlessButtonStyle"
             android:id="@+id/btn_userID"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="0.2"
+            android:fontFamily="@font/gyufont"
+            android:background="@drawable/buttongyu5"
+            android:layout_height="match_parent"
             android:textStyle="bold"
             android:text="확인" />
     </LinearLayout>
@@ -151,11 +155,12 @@
             android:id="@+id/et_userEmail" />
         <Button
 
-
-            style="?android:attr/buttonStyleSmall"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="0.2"
+            android:fontFamily="@font/gyufont"
+            android:background="@drawable/buttongyu5"
+            android:layout_height="match_parent"
             android:text="전송"
             android:textStyle="bold"
             android:id="@+id/btn_userEmail" />
@@ -183,10 +188,12 @@
         <Button
 
 
-            style="?android:attr/buttonStyleSmall"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:layout_weight="0.2"
+            android:fontFamily="@font/gyufont"
+            android:background="@drawable/buttongyu5"
+            android:layout_height="match_parent"
             android:text="확인"
             android:textStyle="bold"
             android:id="@+id/btn_userEmailcode" />
@@ -200,24 +207,31 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         android:padding="20dp">
+
         <Button
 
 
-            style="?android:attr/buttonStyleSmall"
+            android:id="@+id/btn_join"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:background="@drawable/buttongyu5"
+            android:fontFamily="@font/gyufont"
             android:text="확인"
-            android:textStyle="bold"
-            android:id="@+id/btn_join" />
+            android:layout_marginRight="30dp"
+            android:textStyle="bold" />
 
         <Button
 
 
-            style="?android:attr/buttonStyleSmall"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
+            android:fontFamily="@font/gyufont"
+            android:background="@drawable/buttongyu5"
+
             android:text="취소"
             android:textStyle="bold"
             android:id="@+id/btn_cancel" />

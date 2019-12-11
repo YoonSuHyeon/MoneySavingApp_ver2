@@ -6,7 +6,7 @@
     tools:context=".LoginActivity"
     android:orientation="vertical"
     android:weightSum="1"
-    android:background="@drawable/background"
+    android:background="@drawable/backgroundlogin"
     >
     <LinearLayout
         android:layout_weight="0.1"
@@ -27,11 +27,14 @@
             android:textSize="30sp"/>
 
         <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/buttongyu5"
             android:id="@+id/btn_findFriend"
             android:layout_weight="0.3"
             android:layout_margin="10dp"
             android:textStyle="bold"
             android:layout_width="0dp"
+            android:fontFamily="@font/gyufont"
             android:layout_height="match_parent"
             android:text="친구 찾기"/>
 
