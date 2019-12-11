@@ -117,7 +117,7 @@ public class FragmentDialog_findFriend extends DialogFragment {
                     if(btn_text.equals("친구 추가")){
                         result.finish(finded_username.getText().toString());
                         Log.d("zzzzz",finded_username.getText().toString());
-                        Toast.makeText(view.getContext(),"친구추가 되었습니다.",Toast.LENGTH_SHORT).show();
+
                         DialogFragment dialogFragment = (DialogFragment)fragment;
                         dialogFragment.dismiss();
                     }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -78,11 +79,17 @@ public class GalleryFragment extends Fragment {
                     @Override
                     public void finish(String result) { //닉네임을받아서 데이타 베이스에 내친구를 등록한다.
                         if(!result.equals("")) {
-                            if(!list.contains(result)) {
+                            for(int i =0 ; i< list.size();i++){
+                                if(list.get(i).getFriend_name().equals(result)){
+                                    Toast.makeText(getContext(),"이미 등록된 친구입니다.",Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                            }
                                 database = FirebaseDatabase.getInstance().getReference();
                                 database = database.child("Users").child(uid).child("Friend");
                                 database.push().setValue(result);
-                            }
+                            Toast.makeText(getContext(),"친구추가 되었습니다.",Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });
