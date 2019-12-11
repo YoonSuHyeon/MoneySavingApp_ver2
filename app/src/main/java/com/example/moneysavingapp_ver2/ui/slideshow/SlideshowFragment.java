@@ -63,6 +63,8 @@ public class SlideshowFragment extends Fragment {
                     public void onItemClick(View v, int pos) {
                         Log.d("chatRoom",cr_Adapter.getItem(pos).getRoomname());
                         Intent intent1 = new Intent(getActivity(), EnterRoomActivity.class);
+                        intent1.putExtra("uid",uid);
+                        intent1.putExtra("roomname",cr_Adapter.getItem(pos).getRoomname());
                         startActivity(intent1);
                     }
                 });

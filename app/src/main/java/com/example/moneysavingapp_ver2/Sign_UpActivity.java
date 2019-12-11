@@ -224,6 +224,7 @@ public class Sign_UpActivity extends AppCompatActivity {
                     DatabaseReference table_user = database.child("Users");
                     User user = new User(nickname.getText().toString(),userid.getText().toString(),password2.getText().toString(),useremail.getText().toString());
                     database.child("Users").push().setValue(user);
+
                     Toast.makeText(Sign_UpActivity.this, "회원가입했습니다.", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(Sign_UpActivity.this, LoginActivity.class);
                     startActivity(intent);
