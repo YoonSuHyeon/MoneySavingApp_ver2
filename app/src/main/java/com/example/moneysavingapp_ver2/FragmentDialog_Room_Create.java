@@ -50,7 +50,7 @@ public class FragmentDialog_Room_Create extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater,container,savedInstanceState);
         View view =inflater.inflate(R.layout.create_room,container,false);
-
+        super.setCancelable(false);
         //Window window = view.getWindow();
         //window.setLayout(300,200);
 

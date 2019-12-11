@@ -1,5 +1,6 @@
 package com.example.moneysavingapp_ver2.ui.gallery;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,12 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.example.moneysavingapp_ver2.R;
+import com.example.moneysavingapp_ver2.User;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class FragmentDialog_findFriend extends DialogFragment {
     private Button btn_friendOK;
@@ -24,7 +30,7 @@ public class FragmentDialog_findFriend extends DialogFragment {
     private TextView finded_username;
     private DatabaseReference database;
     String btn_text;
-
+    String nickname;
     private Fragment fragment;
     DialogFindFriendResult result;
 
@@ -46,7 +52,10 @@ public class FragmentDialog_findFriend extends DialogFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View view =inflater.inflate(R.layout.find_friend,container,false);
+        super.setCancelable(false);
 
+
+        database= FirebaseDatabase.getInstance().getReference();
         fragment = getActivity().getSupportFragmentManager().findFragmentByTag("find_approval");
         btn_friendOK=view.findViewById(R.id.btn_friendOk);
         btn_friendCancel=view.findViewById(R.id.btn_friendCancel);
@@ -63,7 +72,39 @@ public class FragmentDialog_findFriend extends DialogFragment {
                 btn_text=btn_friendOK.getText().toString();
                 if(btn_text.equals("OK")){
                     layout_gone.setVisibility(View.VISIBLE);
-                    btn_friendOK.setText("친구 추가");
+                    database= FirebaseDatabase.getInstance().getReference();
+                    database=database.child("Users");
+                    ValueEventListener valueEventListener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for(DataSnapshot da : dataSnapshot.getChildren()){
+                            //    Log.d("adasd",da.getValue().toString());
+                               User friend = da.getValue(User.class);
+                                //Log.d("dddd",friend.getNickname());
+
+                               if(friend.getNickname().equals(et_findID.getText().toString())){
+
+                                   nickname=friend.getNickname();
+                                   finded_username.setText(nickname);
+                                   et_findID.setEnabled(false);
+                                   btn_friendOK.setText("친구 추가");
+                                   break;
+                               }
+                            }
+                            if(nickname==null){
+                                finded_username.setText("등록된 닉네임이 없습니다.");
+                            }
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    };
+                    database.addListenerForSingleValueEvent(valueEventListener);
+
 
                     //레이아웃 보이게 하고 사용자가 있는지 검색해야함 검색완료후 띄워야함
                 }else{

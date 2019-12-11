@@ -49,8 +49,6 @@ public class HomeFragment extends Fragment {
                 list.clear();
                 for(DataSnapshot da : dataSnapshot.getChildren()){
 
-                    //list.add(da.getValue(Notice_Item.class));
-                    //list.add(da.getValue());
                     Log.d("zxcvzxcv",da.getValue().toString());
                     list.add(da.getValue(Notice_Item.class));
                 }
