@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="로그인"
-            android:textSize="40sp"/>
+            android:textSize="30sp"/>
     </LinearLayout>
 
     <LinearLayout

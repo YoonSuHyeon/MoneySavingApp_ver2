@@ -24,7 +24,7 @@
             android:layout_gravity="center"
             android:drawableStart="@drawable/help"
             android:drawableLeft="@drawable/help"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/gyufont"
             android:text="@string/quetion"
             android:textSize="25dp" />
     </LinearLayout>
@@ -50,7 +50,7 @@
             android:layout_height="match_parent"
             android:drawableStart="@drawable/ic_assignment_ind_black_24dp"
             android:drawableLeft="@drawable/ic_assignment_ind_black_24dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/gyufont"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="@string/make"
@@ -77,7 +77,7 @@
             android:drawableStart="@drawable/ic_info_black_24dp"
             android:drawableLeft="@drawable/ic_info_black_24dp"
 
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/gyufont"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
             android:text="@string/ver"

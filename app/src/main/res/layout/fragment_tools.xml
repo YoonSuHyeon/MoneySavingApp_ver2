@@ -18,7 +18,8 @@
         android:textSize="30sp"
         android:textColor="@android:color/white"
         android:gravity="center"
-        android:textStyle="bold" />
+        android:fontFamily="@font/font1"
+        />
 
     <LinearLayout
         android:weightSum="1"

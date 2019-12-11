@@ -28,7 +28,7 @@
             android:drawableLeft="@drawable/help"
 
             android:text="@string/help"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/gyufont"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -55,7 +55,7 @@
 
             android:drawableStart="@drawable/ic_exit_to_app_black_24dp"
             android:drawableLeft="@drawable/ic_exit_to_app_black_24dp"
-            android:fontFamily="sans-serif"
+            android:fontFamily="@font/gyufont"
             android:text="@string/logout"
             android:textSize="25dp"/>
 

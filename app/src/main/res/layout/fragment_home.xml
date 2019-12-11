@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/background"
     android:weightSum="1"
-    android:padding="50dp"
+    android:padding="2dp"
     >
 
     <LinearLayout
@@ -25,7 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="공지사항"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:layout_marginBottom="20dp"
+            />
         </LinearLayout>
 
     <LinearLayout
@@ -38,6 +40,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
         />
 
 
