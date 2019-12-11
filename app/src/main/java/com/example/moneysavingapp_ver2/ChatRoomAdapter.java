@@ -1,5 +1,6 @@
 package com.example.moneysavingapp_ver2;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,13 +35,13 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ChatViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ChatViewHolder holder, final int position) {
         holder.roomname.setText(chatRooms.get(position).roomname);
         holder.roomname.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-
+                Log.d("chatRoom",chatRooms.get(position).roomname);
             }
         });
     }

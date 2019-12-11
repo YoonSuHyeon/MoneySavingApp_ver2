@@ -14,6 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.moneysavingapp_ver2.FriendList_item;
 import com.example.moneysavingapp_ver2.Friend_Adapter;
 import com.example.moneysavingapp_ver2.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -24,7 +29,7 @@ public class GalleryFragment extends Fragment {
     private ArrayList<FriendList_item> list = new ArrayList<>();
     private Button btn_findFriend;
    // private GalleryViewModel galleryViewModel;
-
+   private DatabaseReference database;
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.fragment_gallery,container,false);
@@ -34,12 +39,32 @@ public class GalleryFragment extends Fragment {
 
         recyclerView=(RecyclerView)rootView.findViewById(R.id.recycler_view);
 
-        list.add(new FriendList_item("백동현"));
-        list.add(new FriendList_item("윤수현"));
-        list.add(new FriendList_item("최규원"));
-        adapter = new Friend_Adapter(list);
+        database= FirebaseDatabase.getInstance().getReference();
+        database=database.child("Users").child(uid).child("Friend");
+
+        ValueEventListener valueEventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
+                    Log.d("aaaaaa", noteDataSnapshot.getValue().toString());
+                    list.add(new FriendList_item(noteDataSnapshot.getValue().toString()));
+                }
+                adapter = new Friend_Adapter(list);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                recyclerView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        database.addValueEventListener(valueEventListener);
+
+
+      /*  adapter = new Friend_Adapter(list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);*/
         btn_findFriend=rootView.findViewById(R.id.btn_findFriend);
         btn_findFriend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,8 +75,12 @@ public class GalleryFragment extends Fragment {
                 dialog_find_friend.show(getActivity().getSupportFragmentManager(),"find_approval");
                 dialog_find_friend.setResult(new FragmentDialog_findFriend.DialogFindFriendResult() {
                     @Override
-                    public void finish(String result) {
-
+                    public void finish(String result) { //닉네임을받아서 데이타 베이스에 내친구를 등록한다.
+                        if(!result.equals("")) {
+                            database = FirebaseDatabase.getInstance().getReference();
+                            database = database.child("Users").child(uid).child("Friend");
+                            database.push().setValue(result);
+                        }
                     }
                 });
             }
