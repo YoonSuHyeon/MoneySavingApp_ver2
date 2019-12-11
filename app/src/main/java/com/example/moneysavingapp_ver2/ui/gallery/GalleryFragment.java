@@ -45,6 +45,7 @@ public class GalleryFragment extends Fragment {
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list.clear();
                 for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
                     Log.d("aaaaaa", noteDataSnapshot.getValue().toString());
                     list.add(new FriendList_item(noteDataSnapshot.getValue().toString()));
@@ -77,9 +78,11 @@ public class GalleryFragment extends Fragment {
                     @Override
                     public void finish(String result) { //닉네임을받아서 데이타 베이스에 내친구를 등록한다.
                         if(!result.equals("")) {
-                            database = FirebaseDatabase.getInstance().getReference();
-                            database = database.child("Users").child(uid).child("Friend");
-                            database.push().setValue(result);
+                            if(!list.contains(result)) {
+                                database = FirebaseDatabase.getInstance().getReference();
+                                database = database.child("Users").child(uid).child("Friend");
+                                database.push().setValue(result);
+                            }
                         }
                     }
                 });
