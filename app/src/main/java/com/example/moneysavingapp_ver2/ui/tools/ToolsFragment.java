@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.moneysavingapp_ver2.ChatRoom;
 import com.example.moneysavingapp_ver2.ChatRoomAdapter;
 
+import com.example.moneysavingapp_ver2.EnterRoomActivity;
 import com.example.moneysavingapp_ver2.FragmentDialog_Room_Create;
 import com.example.moneysavingapp_ver2.Message;
 import com.example.moneysavingapp_ver2.R;
@@ -148,7 +149,14 @@ public class ToolsFragment extends Fragment {
                     }
                 }
                 cr_Adapter =new ChatRoomAdapter(roomlist);
-
+                cr_Adapter.setOnItemClickListener(new ChatRoomAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View v, int pos) {
+                        Log.d("chatRoom",cr_Adapter.getItem(pos).getRoomname());
+                        Intent intent1 = new Intent(getActivity(), EnterRoomActivity.class);
+                        startActivity(intent1);
+                    }
+                });
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
                 recyclerView.setLayoutManager(mLayoutManager);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());

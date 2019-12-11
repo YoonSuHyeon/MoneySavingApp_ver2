@@ -12,9 +12,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+
+
 public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatViewHolder>{
 
     private  ArrayList<ChatRoom> chatRooms;
+    public interface OnItemClickListener{
+        void onItemClick (View v, int pos);
+    }
+    private OnItemClickListener mListener = null;
+
+    public void setOnItemClickListener(OnItemClickListener listener){
+        this.mListener = listener;
+    }
     public class  ChatViewHolder extends RecyclerView.ViewHolder {
         public TextView roomname;
         public ChatViewHolder(@NonNull View itemView) {
@@ -39,13 +49,21 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatVi
         holder.roomname.setText(chatRooms.get(position).roomname);
         holder.roomname.setOnClickListener(new View.OnClickListener(){
 
+
             @Override
             public void onClick(View v) {
-                Log.d("chatRoom",chatRooms.get(position).roomname);
+                if(position != RecyclerView.NO_POSITION){
+                    if(mListener != null){
+                        mListener.onItemClick(v,position);
+                    }
+                }
+                //Log.d("chatRoom",chatRooms.get(position).roomname);
             }
         });
     }
-
+    public ChatRoom getItem(int pos){
+        return chatRooms.get(pos);
+    }
 
 
     @Override

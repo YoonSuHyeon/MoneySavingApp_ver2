@@ -1,5 +1,6 @@
 package com.example.moneysavingapp_ver2.ui.slideshow;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moneysavingapp_ver2.ChatRoom;
 import com.example.moneysavingapp_ver2.ChatRoomAdapter;
+import com.example.moneysavingapp_ver2.EnterRoomActivity;
 import com.example.moneysavingapp_ver2.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -56,6 +58,14 @@ public class SlideshowFragment extends Fragment {
                 cr_Adapter =new ChatRoomAdapter(roomlist);
 
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+                cr_Adapter.setOnItemClickListener(new ChatRoomAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View v, int pos) {
+                        Log.d("chatRoom",cr_Adapter.getItem(pos).getRoomname());
+                        Intent intent1 = new Intent(getActivity(), EnterRoomActivity.class);
+                        startActivity(intent1);
+                    }
+                });
                 recyclerView.setLayoutManager(mLayoutManager);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setAdapter(cr_Adapter);
