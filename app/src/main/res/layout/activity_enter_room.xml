@@ -1,26 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EnterRoomActivity">
-    <TextView
-        android:id="@+id/tv_roomname"
-        android:layout_weight="0.1"
+    tools:context=".EnterRoomActivity"
+    android:weightSum="1"
+    android:background="@drawable/backgroundlogin"
+    >
+
+    <LinearLayout
+
+        android:weightSum="1"
+        android:layout_weight="0.05"
         android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:drawableStart="@drawable/ic_arrow_back_black_24dp"
+        android:drawableLeft="@drawable/ic_arrow_back_black_24dp"
+        android:layout_weight="0.1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        />
+        <TextView
+            android:id="@+id/tv_roomname"
+            android:gravity="center"
+            android:layout_weight="0.8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            />
+
+</LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reclv_room"
-        android:layout_weight="0.7"
+        android:layout_weight="0.95"
         android:layout_width="match_parent"
         android:layout_height="0dp" />
-    <EditText
-        android:id="@+id/et_message"
-        android:layout_weight="0.2"
+
+
+    <LinearLayout
+
+        android:weightSum="1"
+        android:layout_weight="0.05"
         android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <EditText
+            android:background="@drawable/buttonyr"
+            android:id="@+id/et_message"
+            android:gravity="center"
+            android:layout_weight="0.9"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            />
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:background="@drawable/buttonyr"
+            android:drawableStart="@drawable/ic_send_black_24dp"
+            android:drawableLeft="@drawable/ic_send_black_24dp"
+            android:layout_weight="0.1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>
