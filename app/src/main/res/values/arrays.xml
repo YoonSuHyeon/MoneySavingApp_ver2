@@ -2,15 +2,15 @@
 <resources>
     <string-array name="category">
 
-        <item>카테고리1</item>
-        <item>카테고리2</item>
-        <item>카테고리3</item>
-        <item>카테고리4</item>
-        <item>카테고리5</item>
-        <item>카테고리6</item>
-        <item>카테고리7</item>
-        <item>카테고리8</item>
-        <item>카테고리9</item>
-        <item>카테고리10</item>
+        <item>흥업면</item>
+        <item>단계동</item>
+        <item>단구동</item>
+        <item>무실동</item>
+        <item>태장동</item>
+        <item>우산동</item>
+        <item>명륜1동</item>
+        <item>명륜2동</item>
+        <item>반곡동</item>
+        <item>행구동</item>
     </string-array>
 </resources>

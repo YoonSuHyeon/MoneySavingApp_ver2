@@ -43,6 +43,14 @@ public class GalleryFragment extends Fragment {
         database= FirebaseDatabase.getInstance().getReference();
         database=database.child("Users").child(uid).child("Friend");
 
+        /*adapter.setOnLongClickListener(new Friend_Adapter.OnItemLongClickListener() {
+            @Override
+            public void onItemLongClick(View v, int pos) {
+                Log.d("vnqvnqvnq","gigigi");
+                FragmentDialog_longClick deleteFriend = new FragmentDialog_longClick();
+                deleteFriend.show(getActivity().getSupportFragmentManager(),"deleteFriend_approval");
+            }
+        });*/
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -52,8 +60,17 @@ public class GalleryFragment extends Fragment {
                     list.add(new FriendList_item(noteDataSnapshot.getValue().toString()));
                 }
                 adapter = new Friend_Adapter(list);
+
                 recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
                 recyclerView.setAdapter(adapter);
+                adapter.setOnLongClickListener(new Friend_Adapter.OnItemLongClickListener() {
+                    @Override
+                    public void onItemLongClick(View v, int pos) {
+                        Log.d("vnqvnqvnq","gigigi");
+                        FragmentDialog_longClick deleteFriend = new FragmentDialog_longClick();
+                        deleteFriend.show(getActivity().getSupportFragmentManager(),"deleteFriend_approval");
+                    }
+                });
             }
 
             @Override
