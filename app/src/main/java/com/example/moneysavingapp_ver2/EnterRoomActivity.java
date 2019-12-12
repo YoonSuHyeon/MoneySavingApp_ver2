@@ -2,6 +2,7 @@ package com.example.moneysavingapp_ver2;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -79,11 +80,11 @@ public class EnterRoomActivity extends AppCompatActivity {
                                  category =ds.getKey();
                                  rid =ds2.getKey();
 
-                                  Query query = database.child(category).child(rid).child("Conversation");
+                                  Query query =  database.child("Chats").child(category).child(rid).child("Conversation");
                                   FirebaseRecyclerOptions<Message> options = new FirebaseRecyclerOptions.Builder<Message>().setQuery(query,Message.class).build();
                                   mFirebaseAdapter = new FirebaseRecyclerAdapter<Message, MessageViewHolder>(options) {
 
-                                      protected void onBindViewHolder(@NonNull MessageViewHolder messageViewHolder, int position, @NonNull Message model) {
+                                      protected void onBindViewHolder( MessageViewHolder messageViewHolder, int position,  Message model) {
                                           messageViewHolder.textView2.setText(model.getSender());
                                           messageViewHolder.textView.setText(model.getMessage());
                                       }
@@ -97,8 +98,12 @@ public class EnterRoomActivity extends AppCompatActivity {
 
 
                                   };
-                                  reclv_room.setLayoutManager(new LinearLayoutManager(EnterRoomActivity.this));
+                                  RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(EnterRoomActivity.this);
+                                  reclv_room.setLayoutManager(mLayoutManager);
+                                  reclv_room.setItemAnimator(new DefaultItemAnimator());
                                   reclv_room.setAdapter(mFirebaseAdapter);
+
+                                  Log.d("zxzcvzxcv", String.valueOf(mFirebaseAdapter.getItemCount()));
                                   mFirebaseAdapter.startListening();
                                   return;
                               }

@@ -107,7 +107,7 @@ public class ToolsFragment extends Fragment {
                             database =database.child("Chats").child(result1).push();
                             database.child("Name").setValue(room_name);
                             database.child("Member").push().setValue(nickname);
-                            Message message = new Message("방이 개설되었습니다.",uid);
+                            Message message = new Message("방이 개설되었습니다.",nickname);
                             database.child("Conversation").push().setValue(message);
                             database =FirebaseDatabase.getInstance().getReference();
                             database.child("Users").child(uid).child("myroom").push().setValue(room_name);
