@@ -16,7 +16,7 @@
         >
 
         <TextView
-            android:paddingTop="10dp"
+            android:paddingTop="15dp"
             android:paddingBottom="10dp"
             android:id="@+id/setting_help"
             android:layout_width="match_parent"
@@ -26,8 +26,8 @@
             android:drawableStart="@drawable/help"
             android:drawableLeft="@drawable/help"
 
-            android:text="@string/help"
-            android:fontFamily="@font/gyufont"
+            android:text="  도움말"
+            android:fontFamily="@font/gyufont2"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -49,13 +49,13 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"
+            android:paddingBottom="10dp"
 
 
             android:drawableStart="@drawable/ic_exit_to_app_black_24dp"
             android:drawableLeft="@drawable/ic_exit_to_app_black_24dp"
-            android:fontFamily="@font/gyufont"
-            android:text="@string/logout"
+            android:fontFamily="@font/gyufont2"
+            android:text="   로그아웃"
             android:textSize="25dp"/>
 
     </LinearLayout>

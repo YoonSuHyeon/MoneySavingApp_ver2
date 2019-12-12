@@ -9,11 +9,11 @@
     android:background="@drawable/backgroundlogin"
     >
     <LinearLayout
+        android:weightSum="1"
         android:layout_weight="0.1"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:weightSum="1"
         android:orientation="horizontal">
         <EditText
             android:drawableStart="@drawable/search"

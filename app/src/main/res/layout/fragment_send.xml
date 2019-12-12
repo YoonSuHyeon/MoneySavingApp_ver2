@@ -16,7 +16,7 @@
 
         <TextView
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"
+            android:paddingBottom="10dp"
             android:id="@+id/ask_quetion"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,8 +24,8 @@
             android:layout_gravity="center"
             android:drawableStart="@drawable/help"
             android:drawableLeft="@drawable/help"
-            android:fontFamily="@font/gyufont"
-            android:text="@string/quetion"
+            android:fontFamily="@font/gyufont2"
+            android:text="  문의하기"
             android:textSize="25dp" />
     </LinearLayout>
 
@@ -50,10 +50,10 @@
             android:layout_height="match_parent"
             android:drawableStart="@drawable/ic_assignment_ind_black_24dp"
             android:drawableLeft="@drawable/ic_assignment_ind_black_24dp"
-            android:fontFamily="@font/gyufont"
+            android:fontFamily="@font/gyufont2"
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="@string/make"
+            android:paddingBottom="10dp"
+            android:text="   만든사람들"
             android:textSize="25dp" />
 
     </LinearLayout>
@@ -77,10 +77,10 @@
             android:drawableStart="@drawable/ic_info_black_24dp"
             android:drawableLeft="@drawable/ic_info_black_24dp"
 
-            android:fontFamily="@font/gyufont"
+            android:fontFamily="@font/gyufont2"
             android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:text="@string/ver"
+            android:paddingBottom="10dp"
+            android:text="   버젼정보"
             android:textSize="25dp" />
 
     </LinearLayout>
