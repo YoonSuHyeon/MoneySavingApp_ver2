@@ -27,8 +27,8 @@ public class FragmentDialog_longClick extends DialogFragment {
     public void onResume() {
         super.onResume();
         ViewGroup.LayoutParams params = getDialog().getWindow().getAttributes();
-        params.width = 500;
-        params.height = 300;
+        params.width = 800;
+        params.height = 600;
         getDialog().getWindow().setAttributes((android.view.WindowManager.LayoutParams)params);
     }
 

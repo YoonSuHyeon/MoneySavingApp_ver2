@@ -1,49 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="350dp"
-    android:layout_height="100dp"
+    android:layout_height="200dp"
     android:orientation="vertical"
     >
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="1">
 
         <LinearLayout
-            android:weightSum="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.34"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/backgroundlogin"
+                android:fontFamily="@font/gyufont"
+                android:gravity="center"
+                android:text="친구 정보"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="#164AE7" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.33"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_weight="0.4"
+                android:fontFamily="@font/gyufont"
+                android:gravity="center"
+                android:text="닉네임"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
 
             <TextView
                 android:id="@+id/tv_longUserId"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.5"
-                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="0.6"
                 android:fontFamily="@font/gyufont"
                 android:gravity="center"
                 android:textSize="30dp"
+                android:textStyle="bold"
 
                 />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_gone"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.33"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:weightSum="1">
+
             <TextView
-                android:layout_weight="0.5"
-                android:id="@+id/delete_friend"
-                android:background="@drawable/backgroundgyu"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:text="친구 삭제"
-                android:fontFamily="@font/gyufont"
-                android:textStyle="bold"
-                android:textSize="30dp"
-                android:gravity="center"/>
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.4"
+                android:gravity="center"
+                android:text="사용자 이름"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/finded_username"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.6"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
 
         </LinearLayout>
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.33"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/delete_friend"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/buttongyu5"
+                android:fontFamily="@font/gyufont"
+                android:gravity="center"
+                android:text="친구 삭제"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>
