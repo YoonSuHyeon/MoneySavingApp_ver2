@@ -113,7 +113,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/buttongyu5"
+                android:background="@drawable/buttongyu5_1"
                 android:fontFamily="@font/gyufont"
                 android:gravity="center"
                 android:text="친구 삭제"
