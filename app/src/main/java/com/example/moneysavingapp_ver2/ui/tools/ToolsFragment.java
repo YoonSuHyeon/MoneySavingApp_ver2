@@ -45,6 +45,7 @@ public class ToolsFragment extends Fragment {
     private RecyclerView recyclerView;
     private ChatRoomAdapter cr_Adapter;
     private Button bt_roomcreat;
+    private Button bt_category;
     private DatabaseReference database;
     String category,room_name;
 
@@ -76,6 +77,13 @@ public class ToolsFragment extends Fragment {
         toolsViewModel =
                 ViewModelProviders.of(this).get(ToolsViewModel.class);
         final View root = inflater.inflate(R.layout.fragment_tools, container, false);
+        bt_category = root.findViewById(R.id.bt_category);
+        bt_category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         bt_roomcreat = (Button) root.findViewById(R.id.bt_roomcreat);
         bt_roomcreat.setOnClickListener(new View.OnClickListener() {
             @Override

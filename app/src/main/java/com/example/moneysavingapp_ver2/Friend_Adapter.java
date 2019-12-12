@@ -42,7 +42,9 @@ public class Friend_Adapter extends RecyclerView.Adapter<Friend_Adapter.Friend_V
         holder.textView.setText(mData.get(itemposition).getFriend_name());
 
     }
-
+    public FriendList_item getItem(int pos){
+        return mData.get(pos);
+    }
 
 
 
@@ -62,8 +64,10 @@ public class Friend_Adapter extends RecyclerView.Adapter<Friend_Adapter.Friend_V
                 @Override
                 public boolean onLongClick(View v) {
                     int pos = getAdapterPosition();
+
                     if(pos != RecyclerView.NO_POSITION){
                         if(mListener !=null){
+                            mData.get(pos).getFriend_name();
                             mListener.onItemLongClick(v,pos);
                         }
                     }

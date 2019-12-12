@@ -17,8 +17,10 @@ import com.example.moneysavingapp_ver2.R;
 public class FragmentDialog_longClick extends DialogFragment {
     private TextView li_deleteFriend;
     private Fragment fragment;
-    public FragmentDialog_longClick() {
-
+    private TextView tv_userNickname;
+    String item;
+    public FragmentDialog_longClick(String item) {
+        this.item = item;
     }
 
     @Override
@@ -36,7 +38,10 @@ public class FragmentDialog_longClick extends DialogFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         final View view =inflater.inflate(R.layout.friend_longclick,container,false);
 
+
         fragment = getActivity().getSupportFragmentManager().findFragmentByTag("deleteFriend_approval");
+        tv_userNickname = view.findViewById(R.id.tv_longUserId);
+        tv_userNickname.setText(item);
         li_deleteFriend=view.findViewById(R.id.delete_friend);
         li_deleteFriend.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -46,7 +46,6 @@
             android:id="@+id/bt_category"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-
             android:textStyle="bold"
            />
     </LinearLayout>
