@@ -102,7 +102,7 @@ public class ToolsFragment extends Fragment {
                         room_name = result;
                         category = result1;
 
-                        if(result!=null&& result1!=null){ //카테고리 ,방이름이 null이 아닐 경우  방을 생성해준다.
+                        if(result!=null&& result1!=null){ //카테고리 ,방이름이 null이 아닐 경우  방을 생성해준다.     방이름 중복 안되게 해야한다.
                             database = FirebaseDatabase.getInstance().getReference();
                             database =database.child("Chats").child(result1).push();
                             database.child("Name").setValue(room_name);
@@ -162,6 +162,9 @@ public class ToolsFragment extends Fragment {
                     public void onItemClick(View v, int pos) {
                         Log.d("chatRoom",cr_Adapter.getItem(pos).getRoomname());
                         Intent intent1 = new Intent(getActivity(), EnterRoomActivity.class);
+                        intent1.putExtra("uid",uid);
+                        intent1.putExtra("roomname",cr_Adapter.getItem(pos).getRoomname());
+                        intent1.putExtra("nickname",nickname);
                         startActivity(intent1);
                     }
                 });

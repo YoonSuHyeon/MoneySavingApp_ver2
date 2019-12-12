@@ -62,6 +62,7 @@
             />
         <Button
             style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/bt_message"
             android:background="@drawable/buttonyr"
             android:drawableStart="@drawable/ic_send_black_24dp"
             android:drawableLeft="@drawable/ic_send_black_24dp"

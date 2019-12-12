@@ -65,6 +65,7 @@ public class SlideshowFragment extends Fragment {
                         Intent intent1 = new Intent(getActivity(), EnterRoomActivity.class);
                         intent1.putExtra("uid",uid);
                         intent1.putExtra("roomname",cr_Adapter.getItem(pos).getRoomname());
+                        intent1.putExtra("nickname",nickname);
                         startActivity(intent1);
                     }
                 });
