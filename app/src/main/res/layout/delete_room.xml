@@ -24,7 +24,7 @@
                 android:background="@drawable/backgroundlogin"
                 android:fontFamily="@font/gyufont"
                 android:gravity="center"
-                android:text="친구 정보"
+                android:text="방 정보"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
@@ -48,13 +48,13 @@
                 android:layout_weight="0.4"
                 android:fontFamily="@font/gyufont"
                 android:gravity="center"
-                android:text="닉네임"
+                android:text="방 이름"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
 
             <TextView
-                android:id="@+id/tv_longUserId"
+                android:id="@+id/tv_longRoom_name"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="5dp"
@@ -88,7 +88,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/finded_username"
+                android:id="@+id/finded_roomname"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
@@ -109,14 +109,14 @@
             android:weightSum="1">
 
             <Button
-                android:id="@+id/delete_friend"
+                android:id="@+id/exit_room"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/buttongyu5"
                 android:fontFamily="@font/gyufont"
                 android:gravity="center"
-                android:text="친구 삭제"
+                android:text="나가기"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
