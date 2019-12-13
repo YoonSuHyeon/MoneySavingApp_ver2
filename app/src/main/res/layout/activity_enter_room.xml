@@ -12,7 +12,7 @@
     <LinearLayout
 
         android:weightSum="1"
-        android:layout_weight="0.05"
+        android:layout_weight="0.035"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -30,9 +30,11 @@
         />
         <TextView
             android:id="@+id/tv_roomname"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:layout_weight="0.8"
             android:layout_width="0dp"
+            android:textSize="25sp"
+            android:textStyle="bold"
             android:layout_height="match_parent"
             />
 
@@ -40,7 +42,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reclv_room"
-        android:layout_weight="0.95"
+        android:layout_weight="0.96"
         android:layout_width="match_parent"
         android:layout_height="0dp" />
 
@@ -49,7 +51,7 @@
     <LinearLayout
 
         android:weightSum="1"
-        android:layout_weight="0.05"
+        android:layout_weight="0.005"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
