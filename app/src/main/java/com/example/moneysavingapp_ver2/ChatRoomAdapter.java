@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatViewHolder>{
     private OnItemLongClickListener mListener2 = null;
     private OnItemClickListener mListener = null;
-    private  ArrayList<ChatRoom> chatRooms;
+    public   ArrayList<ChatRoom> chatRooms;
 
     public interface OnItemClickListener{
         void onItemClick (View v, int pos);

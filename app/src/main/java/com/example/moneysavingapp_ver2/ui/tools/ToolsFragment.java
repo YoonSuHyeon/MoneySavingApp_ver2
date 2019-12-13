@@ -87,6 +87,10 @@ public class ToolsFragment extends Fragment {
                     @Override
                     public void finish(String result) {
                         //카테고리 = result 임
+                        database=FirebaseDatabase.getInstance().getReference();
+                       // cr_Adapter.chatRooms.removeAll();
+
+                        cr_Adapter.notifyDataSetChanged();
                         //카테고리 별로 리스트 정렬되게 //
                     }
                 });
