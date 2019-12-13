@@ -59,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
 
         imageList.add(R.drawable.image1);
         imageList.add(R.drawable.image2);
+        imageList.add(R.drawable.filter);
 
 
     }
