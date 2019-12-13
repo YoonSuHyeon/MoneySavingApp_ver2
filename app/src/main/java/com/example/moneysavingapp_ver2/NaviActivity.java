@@ -33,12 +33,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.TextView;
 
 public class NaviActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private  String uid,nickname;
-
+    private TextView nav_tvid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +81,8 @@ public class NaviActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navi, menu);
+        nav_tvid = findViewById(R.id.nav_tvid);
+        nav_tvid.setText(nickname);
         return true;
     }
 
