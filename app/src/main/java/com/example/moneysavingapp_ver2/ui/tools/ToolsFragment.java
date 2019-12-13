@@ -188,10 +188,9 @@ public class ToolsFragment extends Fragment {
                                                         if(dss.getValue().toString().equals(nickname)){
                                                             return;
                                                         }
-                                                        database.child("Chats").child(ds.getKey()).child(ds2.getKey()).child("Member").push().setValue(nickname);
 
                                                     }
-
+                                                    database.child("Chats").child(ds.getKey()).child(ds2.getKey()).child("Member").push().setValue(nickname);
 
 
 
