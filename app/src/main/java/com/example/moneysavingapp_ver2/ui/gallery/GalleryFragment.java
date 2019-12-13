@@ -69,7 +69,7 @@ public class GalleryFragment extends Fragment {
                         Log.d("vnqvnqvnq","gigigi");
                         String item = adapter.getItem(pos).getFriend_name();
                         Log.d("gigi","zzzzz");
-                        FragmentDialog_longClick deleteFriend = new FragmentDialog_longClick(item);
+                        FragmentDialog_longClick deleteFriend = new FragmentDialog_longClick(item,uid);
                         deleteFriend.show(getActivity().getSupportFragmentManager(),"deleteFriend_approval");
                     }
                 });

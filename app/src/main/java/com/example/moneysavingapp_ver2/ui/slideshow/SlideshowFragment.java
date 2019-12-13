@@ -78,7 +78,7 @@ public class SlideshowFragment extends Fragment {
                     public void onItemLongClick(View v, int pos) {
                         Log.d("roomroom","longlong");
                         String item = cr_Adapter.getItem(pos).getRoomname();
-                        FragmentDialogRoom_longClick deleteRoom = new FragmentDialogRoom_longClick(item);
+                        FragmentDialogRoom_longClick deleteRoom = new FragmentDialogRoom_longClick(item,uid,nickname);
                         deleteRoom.show(getActivity().getSupportFragmentManager(),"deleteRoom_approval");
                     }
                 });

@@ -14,6 +14,11 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import com.example.moneysavingapp_ver2.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class FragmentDialogRoom_longClick extends DialogFragment {
     Button btn_exitRoom;
@@ -21,9 +26,13 @@ public class FragmentDialogRoom_longClick extends DialogFragment {
     private TextView tv_roomName;
     Fragment fragment;
     String item;
-
-    public FragmentDialogRoom_longClick(String item) {
+    String uid;
+    String nickname;
+    private DatabaseReference database;
+    public FragmentDialogRoom_longClick(String item,String uid,String nickname) {
         this.item = item;
+        this.uid = uid;
+        this.nickname =nickname;
     }
 
     @Override
@@ -53,11 +62,47 @@ public class FragmentDialogRoom_longClick extends DialogFragment {
                     Toast.makeText(view.getContext(),"정말로 방을 나가시겠습니까?",Toast.LENGTH_SHORT).show();
 
                 }else{
+                    database= FirebaseDatabase.getInstance().getReference();
+                    ValueEventListener velistener = new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for(DataSnapshot dst : dataSnapshot.getChildren()){
+                                if(dst.getKey().equals("Users")){
+                                    for(DataSnapshot ddst : dst.child(uid).child("myroom").getChildren()){
+                                        database.child("Users").child(uid).child("myroom").child(ddst.getKey()).removeValue();
+                                        break;
+                                    }
+                                }else if(dst.getKey().equals("Chats")){
+                                    for(DataSnapshot ggst : dst.getChildren()){
+                                        for(DataSnapshot ggst2 : ggst.getChildren()){
+                                            if(ggst2.child("Name").getValue().toString().equals(item)){
+                                                for(DataSnapshot ggst3 : ggst2.child("Member").getChildren()){
+                                                    if(ggst3.getValue().equals(nickname)){
+                                                        database.child("Chats").child(ggst.getKey()).child(ggst2.getKey()).child("Member").child(ggst3.getKey()).removeValue();
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    };
+                    dismiss();
+                    database.addListenerForSingleValueEvent(velistener);
+
                     //방 나가기 버튼 눌렀을 시 이벤트 !!
                 }
 
             }
         });
+
 
         return view;
     }
