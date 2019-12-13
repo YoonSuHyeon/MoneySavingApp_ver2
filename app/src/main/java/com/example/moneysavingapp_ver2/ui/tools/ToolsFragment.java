@@ -142,25 +142,79 @@ public class ToolsFragment extends Fragment {
         ValueEventListener vListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 roomlist.clear();
                 for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
-                    for (DataSnapshot da : dataSnapshot.getChildren()) {
-                        for(DataSnapshot dd :da.getChildren()){
-                            for(DataSnapshot dx : dd.getChildren()){
-                                ChatRoom chatRoom = new ChatRoom(dx.getValue().toString());
-                                if(dx.getKey().contains("Name")) {
+                    for (DataSnapshot da : noteDataSnapshot.getChildren()) {
+                                ChatRoom chatRoom = new ChatRoom(da.child("Name").getValue().toString());
                                     roomlist.add(chatRoom);
-                                    Log.d("ss", dx.toString());
-                                }
-                            }
-                        }
+                                    Log.d("ss", da.child("Name").getValue().toString());
                     }
                 }
+
                 cr_Adapter =new ChatRoomAdapter(roomlist);
                 cr_Adapter.setOnItemClickListener(new ChatRoomAdapter.OnItemClickListener() {
                     @Override
-                    public void onItemClick(View v, int pos) {
+                    public void onItemClick(View v, final int pos) {
                         Log.d("chatRoom",cr_Adapter.getItem(pos).getRoomname());
+
+                        database = FirebaseDatabase.getInstance().getReference();
+
+
+
+                        ValueEventListener vfListener = new ValueEventListener() { //채팅방에다가 내이름 적는것
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                                for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
+                                    if (noteDataSnapshot.getKey().equals("Chats")) {
+                                        // category = noteDataSnapshot.getKey();
+
+                                        for (DataSnapshot ds : noteDataSnapshot.getChildren()) {
+                                            for (DataSnapshot ds2 : ds.getChildren()) {
+
+                                                if(cr_Adapter.getItem(pos).getRoomname().equals(ds2.child("Name").getValue().toString())) {
+                                                    //category = ds.getKey(); //카테고리
+                                                    //rid = ds2.getKey();//rid
+                                                    for(DataSnapshot dss :ds2.child("Member").getChildren()){
+                                                        if(dss.getValue().toString().equals(nickname)){
+                                                            return;
+                                                        }
+                                                        database.child("Chats").child(ds.getKey()).child(ds2.getKey()).child("Member").push().setValue(nickname);
+
+                                                    }
+
+
+
+
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else if(noteDataSnapshot.getKey().equals("Users")){
+                                        for (DataSnapshot ds : noteDataSnapshot.getChildren()) {
+                                            Log.d("sadgasdg",ds.getKey());
+                                            if(uid.equals(ds.getKey())){
+                                                for(DataSnapshot dds : ds.child("myroom").getChildren()){
+                                                    if(dds.getValue().toString().equals(cr_Adapter.getItem(pos).getRoomname()))
+                                                        return;
+
+                                                }
+                                                database.child("Users").child(uid).child("myroom").push().setValue(cr_Adapter.getItem(pos).getRoomname());
+                                                return;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        };
+                        database.addListenerForSingleValueEvent(vfListener);
+
                         Intent intent1 = new Intent(getActivity(), EnterRoomActivity.class);
                         intent1.putExtra("uid",uid);
                         intent1.putExtra("roomname",cr_Adapter.getItem(pos).getRoomname());

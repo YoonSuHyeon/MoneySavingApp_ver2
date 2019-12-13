@@ -19,6 +19,7 @@
         >
 
     <Button
+        android:id="@+id/bt_exitroom"
         style="?android:attr/borderlessButtonStyle"
         android:drawableStart="@drawable/ic_arrow_back_black_24dp"
         android:drawableLeft="@drawable/ic_arrow_back_black_24dp"

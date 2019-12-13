@@ -30,7 +30,7 @@ public class EnterRoomActivity extends AppCompatActivity {
     private DatabaseReference database;
     private TextView tv_roomname;
     private EditText et_message;
-    private Button  bt_message;
+    private Button  bt_message,bt_exitroom;
     private RecyclerView reclv_room;
     private FirebaseRecyclerAdapter<Message,MessageViewHolder> mFirebaseAdapter;
 
@@ -54,7 +54,7 @@ public class EnterRoomActivity extends AppCompatActivity {
         bt_message =findViewById(R.id.bt_message);
         et_message=findViewById(R.id.et_message);
         reclv_room=findViewById(R.id.reclv_room);
-
+        bt_exitroom=findViewById(R.id.bt_exitroom);
 
 
 
@@ -68,6 +68,8 @@ public class EnterRoomActivity extends AppCompatActivity {
 
 
         ValueEventListener vListener = new ValueEventListener() { //  database 주소 가져오기
+
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()){
@@ -83,8 +85,14 @@ public class EnterRoomActivity extends AppCompatActivity {
                                   Query query =  database.child("Chats").child(category).child(rid).child("Conversation");
                                   FirebaseRecyclerOptions<Message> options = new FirebaseRecyclerOptions.Builder<Message>().setQuery(query,Message.class).build();
                                   mFirebaseAdapter = new FirebaseRecyclerAdapter<Message, MessageViewHolder>(options) {
+                                      @Override
+                                      public void onDataChanged() {
+                                          super.onDataChanged();
 
-                                      protected void onBindViewHolder( MessageViewHolder messageViewHolder, int position,  Message model) {
+                                          reclv_room.scrollToPosition(mFirebaseAdapter.getItemCount() - 1);
+                                      }
+
+                                      protected void onBindViewHolder(MessageViewHolder messageViewHolder, int position, Message model) {
                                           messageViewHolder.textView2.setText(model.getSender());
                                           messageViewHolder.textView.setText(model.getMessage());
                                       }
@@ -103,8 +111,10 @@ public class EnterRoomActivity extends AppCompatActivity {
                                   reclv_room.setItemAnimator(new DefaultItemAnimator());
                                   reclv_room.setAdapter(mFirebaseAdapter);
 
-                                  Log.d("zxzcvzxcv", String.valueOf(mFirebaseAdapter.getItemCount()));
+
                                   mFirebaseAdapter.startListening();
+
+
                                   return;
                               }
                           }
@@ -113,6 +123,7 @@ public class EnterRoomActivity extends AppCompatActivity {
 
                 }
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -123,7 +134,12 @@ public class EnterRoomActivity extends AppCompatActivity {
 
 
 
-
+        bt_exitroom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               finish(); //뒤로가기
+            }
+        });
 
 
         bt_message.setOnClickListener(new View.OnClickListener() { //전송하기

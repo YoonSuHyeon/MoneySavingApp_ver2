@@ -53,6 +53,7 @@ public class SlideshowFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
               roomlist.clear();
                 for(DataSnapshot da : dataSnapshot.getChildren()){
+
                   roomlist.add(new ChatRoom(da.getValue().toString()));
               }
                 cr_Adapter =new ChatRoomAdapter(roomlist);
@@ -102,5 +103,8 @@ public class SlideshowFragment extends Fragment {
             }
         });
         return root;
+    }
+    public ArrayList<ChatRoom> getRoomlist(){
+       return roomlist ;
     }
 }
