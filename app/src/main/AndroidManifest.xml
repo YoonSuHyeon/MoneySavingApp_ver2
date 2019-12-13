@@ -9,26 +9,40 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Question"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"></activity>
+        <activity android:name=".MakePeople"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".HomeActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EnterRoomActivity"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NaviActivity"
             android:label="@string/title_activity_navi"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Sign_UpActivity"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Find_ID_PWActivity"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Splash"
+            android:launchMode="singleTask"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
