@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.moneysavingapp_ver2.Help;
 import com.example.moneysavingapp_ver2.LoginActivity;
 import com.example.moneysavingapp_ver2.R;
 
@@ -37,7 +38,8 @@ public class ShareFragment extends Fragment {
         help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(root.getContext(), Help.class);
+                root.getContext().startActivity(intent);
             }
         });
 
