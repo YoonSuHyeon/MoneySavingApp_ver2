@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back4"
+    android:background="@drawable/quetionimage"
     tools:context=".Question">
 
 
@@ -12,10 +12,12 @@
         android:id="@+id/textView2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="윤수현 = 010 - 7469 - 4047\n백동현 = 010 - 9972 - 6216\n최규원 = 010 - 4535 -6076\n엄수현 = 010 - 5526 - 7807\n정예락 = 010 - 4179 - 1062"
+
+        android:text="         Phone Number\n\n윤수현 = 010 - 7469 - 4047\n\n백동현 = 010 - 9972 - 6216\n\n최규원 = 010 - 4535 -6076\n\n엄수현 = 010 - 5526 - 7807\n\n정예락 = 010 - 4179 - 1062"
         android:textSize="25sp"
-        android:textColor="#0F0F0F"
+        android:textColor="#020202"
         android:textStyle="bold"
+        android:fontFamily="@font/gyufont"
         app:layout_constraintBottom_toTopOf="@+id/btn_backback"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,10 +28,12 @@
         android:id="@+id/btn_backback"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/buttongyu"
+        android:background="#F0F7F7F7"
         android:text="뒤로 가기"
+        android:fontFamily="@font/gyufont2"
+        android:textColor="#030101"
         android:textSize="30sp"
-        android:textStyle="bold"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
