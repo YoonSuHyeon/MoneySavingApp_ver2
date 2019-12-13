@@ -81,7 +81,15 @@ public class ToolsFragment extends Fragment {
         bt_category.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                CategoryDialog categoryDialog = new CategoryDialog();
+                categoryDialog.show(getActivity().getSupportFragmentManager(),"category_approval");
+                categoryDialog.setResult(new CategoryDialog.DialogCategoryResult() {
+                    @Override
+                    public void finish(String result) {
+                        //카테고리 = result 임
+                        //카테고리 별로 리스트 정렬되게 //
+                    }
+                });
             }
         });
         bt_roomcreat = (Button) root.findViewById(R.id.bt_roomcreat);
