@@ -9,20 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EnterRoomActivity"
+        <activity android:name=".HomeActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".EnterRoomActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".NaviActivity"
             android:label="@string/title_activity_navi"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Sign_UpActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".LoginActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".Find_ID_PWActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".HomeActivity"
+            android:name=".Sign_UpActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Find_ID_PWActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Splash"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
