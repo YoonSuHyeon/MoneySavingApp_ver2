@@ -32,6 +32,7 @@ public class EnterRoomActivity extends AppCompatActivity {
     private  String uid,roomname,nickname,category,rid;
     private DatabaseReference database;
     private TextView tv_roomname;
+    private LinearLayout linearLayout;
     private EditText et_message;
     private Button  bt_message,bt_exitroom;
     private RecyclerView reclv_room;
@@ -58,7 +59,7 @@ public class EnterRoomActivity extends AppCompatActivity {
         et_message=findViewById(R.id.et_message);
         reclv_room=findViewById(R.id.reclv_room);
         bt_exitroom=findViewById(R.id.bt_exitroom);
-
+        linearLayout = findViewById(R.id.linear);
 
 
         uid=getIntent().getStringExtra("uid");
@@ -99,7 +100,11 @@ public class EnterRoomActivity extends AppCompatActivity {
 
                                           if(model.getSender().equals(nickname)) {
                                               messageViewHolder.textView2.setText("");
-                                              messageViewHolder.textView2.setGravity(Gravity.RIGHT);
+
+                                              messageViewHolder.linearLayout.setGravity(Gravity.RIGHT);
+                                              LinearLayout.LayoutParams params = (LinearLayout.LayoutParams)messageViewHolder.linearLayout.getLayoutParams();
+                                              params.gravity=Gravity.RIGHT;
+                                              messageViewHolder.linearLayout.setLayoutParams(params);
                                               messageViewHolder.textView.setText(model.getMessage());
                                               messageViewHolder.textView.setGravity(Gravity.RIGHT);
                                            //   messageViewHolder.linearLayout.setGravity(Gravity.RIGHT);
@@ -108,6 +113,7 @@ public class EnterRoomActivity extends AppCompatActivity {
 
 
                                           }else{
+
                                               messageViewHolder.textView2.setText(model.getSender());
                                               messageViewHolder.textView.setText(model.getMessage());
 
@@ -175,9 +181,11 @@ public class EnterRoomActivity extends AppCompatActivity {
     static class MessageViewHolder extends RecyclerView.ViewHolder{
         TextView textView;
         TextView textView2;
+        LinearLayout linearLayout;
        // LinearLayout linearLayout;
          MessageViewHolder(@NonNull View itemView) {
             super(itemView);
+            this.linearLayout = itemView.findViewById(R.id.linear);
            // this.linearLayout=itemView.findViewById(R.id.li_message);
             this.textView = itemView.findViewById(R.id.tv_message);
             this.textView2 = itemView.findViewById(R.id.tv_nickname);
