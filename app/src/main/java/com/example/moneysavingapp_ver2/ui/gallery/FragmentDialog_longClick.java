@@ -17,7 +17,7 @@ import com.example.moneysavingapp_ver2.R;
 
 public class FragmentDialog_longClick extends DialogFragment {
     private Button li_deleteFriend;
-    private Fragment fragment;
+    Fragment fragment;
     private TextView tv_userNickname;
     String item;
     public FragmentDialog_longClick(String item) {

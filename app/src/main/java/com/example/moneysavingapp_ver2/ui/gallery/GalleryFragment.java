@@ -47,7 +47,7 @@ public class GalleryFragment extends Fragment {
             @Override
             public void onItemLongClick(View v, int pos) {
                 Log.d("vnqvnqvnq","gigigi");
-                FragmentDialog_longClick deleteFriend = new FragmentDialog_longClick();
+                FragmentDialogRoom_longClick deleteFriend = new FragmentDialogRoom_longClick();
                 deleteFriend.show(getActivity().getSupportFragmentManager(),"deleteFriend_approval");
             }
         });*/

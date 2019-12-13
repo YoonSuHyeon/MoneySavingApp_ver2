@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -21,7 +20,6 @@ import com.example.moneysavingapp_ver2.ChatRoom;
 import com.example.moneysavingapp_ver2.ChatRoomAdapter;
 import com.example.moneysavingapp_ver2.EnterRoomActivity;
 import com.example.moneysavingapp_ver2.R;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -73,6 +71,17 @@ public class SlideshowFragment extends Fragment {
                 recyclerView.setLayoutManager(mLayoutManager);
                 recyclerView.setItemAnimator(new DefaultItemAnimator());
                 recyclerView.setAdapter(cr_Adapter);
+
+                cr_Adapter.setOnLongClickListener(new ChatRoomAdapter.OnItemLongClickListener() {
+
+                    @Override
+                    public void onItemLongClick(View v, int pos) {
+                        Log.d("roomroom","longlong");
+                        String item = cr_Adapter.getItem(pos).getRoomname();
+                        FragmentDialogRoom_longClick deleteRoom = new FragmentDialogRoom_longClick(item);
+                        deleteRoom.show(getActivity().getSupportFragmentManager(),"deleteRoom_approval");
+                    }
+                });
             }
 
             @Override

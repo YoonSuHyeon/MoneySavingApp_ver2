@@ -116,7 +116,7 @@
                 android:background="@drawable/buttongyu5"
                 android:fontFamily="@font/gyufont"
                 android:gravity="center"
-                android:text="나가기"
+                android:text="방 나가기"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 

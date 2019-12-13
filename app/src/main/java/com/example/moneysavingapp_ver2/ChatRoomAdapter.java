@@ -39,9 +39,26 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatVi
         public TextView roomname;
         public ChatViewHolder(@NonNull View itemView) {
             super(itemView);
-            roomname=(TextView) itemView.findViewById(R.id.roomname);
+            this.roomname=(TextView) itemView.findViewById(R.id.roomname);
+
+            /*itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    int pos = getAdapterPosition();
+
+                    if(pos != RecyclerView.NO_POSITION){
+                        if(mListener2 !=null){
+                            chatRooms.get(pos).getRoomname();
+                            mListener2.onItemLongClick(v,pos);
+                        }
+                    }
+                    return true;
+                }
+            });*/
+
         }
     }
+
 
     public ChatRoomAdapter(ArrayList<ChatRoom> chatRooms){
         this.chatRooms=chatRooms;
@@ -57,6 +74,21 @@ public class ChatRoomAdapter extends RecyclerView.Adapter<ChatRoomAdapter.ChatVi
     @Override
     public void onBindViewHolder(@NonNull ChatViewHolder holder, final int position) {
         holder.roomname.setText(chatRooms.get(position).roomname);
+        holder.roomname.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                int pos = position;
+
+                if(pos != RecyclerView.NO_POSITION){
+                    if(mListener2 !=null){
+                        chatRooms.get(pos).getRoomname();
+                        mListener2.onItemLongClick(v,pos);
+                    }
+                }
+                return true;
+
+            }
+        });
         holder.roomname.setOnClickListener(new View.OnClickListener(){
 
 
