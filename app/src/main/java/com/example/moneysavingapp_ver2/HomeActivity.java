@@ -56,10 +56,10 @@ public class HomeActivity extends AppCompatActivity {
 
     public void initializeData(){
         imageList = new ArrayList();
-
-        imageList.add(R.drawable.image1);
-        imageList.add(R.drawable.image2);
+        imageList.add(R.drawable.xcc);
+        imageList.add(R.drawable.idpw);
         imageList.add(R.drawable.filter);
+        imageList.add(R.drawable.chat);
 
 
     }
