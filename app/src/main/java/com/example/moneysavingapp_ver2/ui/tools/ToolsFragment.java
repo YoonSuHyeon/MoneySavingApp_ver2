@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatRadioButton;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -40,7 +41,7 @@ import java.util.ArrayList;
 
 public class ToolsFragment extends Fragment {
     private  String uid,nickname;
-    private ArrayList<ChatRoom> roomlist;
+    private ArrayList<ChatRoom> roomlist,templist;
     private ToolsViewModel toolsViewModel;
     private RecyclerView recyclerView;
     private ChatRoomAdapter cr_Adapter;
@@ -66,6 +67,7 @@ public class ToolsFragment extends Fragment {
 
         database= FirebaseDatabase.getInstance().getReference(); //주소 연결해서 가져온거 파이어베이스
         roomlist= new ArrayList<ChatRoom>();
+        templist = new ArrayList<ChatRoom>();
 
 
 
@@ -85,12 +87,46 @@ public class ToolsFragment extends Fragment {
                 categoryDialog.show(getActivity().getSupportFragmentManager(),"category_approval");
                 categoryDialog.setResult(new CategoryDialog.DialogCategoryResult() {
                     @Override
-                    public void finish(String result) {
+                    public void finish(final String result) {
                         //카테고리 = result 임
-                        database=FirebaseDatabase.getInstance().getReference();
+                        templist.clear();
+                        database=FirebaseDatabase.getInstance().getReference().child("Chats");
+                        ValueEventListener velistener = new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
+                                    if(noteDataSnapshot.getKey().equals(result)){
+                                        for(DataSnapshot noDatas : noteDataSnapshot.getChildren()){
+                                            ChatRoom chatRoom = new ChatRoom(noDatas.child("Name").getValue().toString());
+                                            templist.add(chatRoom);
+                                        }
+
+
+                                    }
+                                    if(templist.size()==0){
+                                        Log.d("ss","없다");
+                                        cr_Adapter.chatRooms.clear();
+                                        cr_Adapter.notifyDataSetChanged();
+                                    }else{
+                                        cr_Adapter.chatRooms.clear();
+                                        cr_Adapter.chatRooms.addAll(templist);
+                                        cr_Adapter.notifyDataSetChanged();
+                                    }
+
+
+
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        };
+                        database.addListenerForSingleValueEvent(velistener);
                        // cr_Adapter.chatRooms.removeAll();
 
-                        cr_Adapter.notifyDataSetChanged();
+
                         //카테고리 별로 리스트 정렬되게 //
                     }
                 });
