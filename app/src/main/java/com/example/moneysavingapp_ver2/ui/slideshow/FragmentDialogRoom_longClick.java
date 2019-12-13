@@ -78,6 +78,9 @@ public class FragmentDialogRoom_longClick extends DialogFragment {
                                             if(ggst2.child("Name").getValue().toString().equals(item)){
                                                 for(DataSnapshot ggst3 : ggst2.child("Member").getChildren()){
                                                     if(ggst3.getValue().equals(nickname)){
+                                                        if(ggst2.child("Member").getChildrenCount()==1.0){
+                                                            database.child("Chats").child(ggst.getKey()).child(ggst2.getKey()).removeValue();
+                                                        }
                                                         database.child("Chats").child(ggst.getKey()).child(ggst2.getKey()).child("Member").child(ggst3.getKey()).removeValue();
                                                         break;
                                                     }
