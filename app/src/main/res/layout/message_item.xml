@@ -1,14 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-<TextView
-    android:id="@+id/tv_nickname"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
+    android:layout_height="wrap_content"
+    android:weightSum="1"
+    >
 
     <TextView
-        android:id="@+id/tv_message"
+        android:layout_weight="1"
+        android:id="@+id/tv_nickname"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        android:background="#E8E0FF"
+        />
+
+
+
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:id="@+id/tv_message"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/rectangle" />
+
+    </LinearLayout>
+
+
 </LinearLayout>
