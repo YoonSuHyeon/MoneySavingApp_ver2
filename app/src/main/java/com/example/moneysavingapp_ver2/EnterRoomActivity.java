@@ -9,11 +9,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -93,8 +96,22 @@ public class EnterRoomActivity extends AppCompatActivity {
                                       }
 
                                       protected void onBindViewHolder(MessageViewHolder messageViewHolder, int position, Message model) {
-                                          messageViewHolder.textView2.setText(model.getSender());
-                                          messageViewHolder.textView.setText(model.getMessage());
+
+                                          if(model.getSender().equals(nickname)) {
+                                              messageViewHolder.textView2.setText("");
+                                              messageViewHolder.textView2.setGravity(Gravity.RIGHT);
+                                              messageViewHolder.textView.setText(model.getMessage());
+                                              messageViewHolder.textView.setGravity(Gravity.RIGHT);
+                                           //   messageViewHolder.linearLayout.setGravity(Gravity.RIGHT);
+                                            //  messageViewHolder.linearLayout.setHorizontalGravity(Gravity.RIGHT);
+                                            //  messageViewHolder.linearLayout.setVerticalGravity(Gravity.RIGHT);
+
+
+                                          }else{
+                                              messageViewHolder.textView2.setText(model.getSender());
+                                              messageViewHolder.textView.setText(model.getMessage());
+
+                                          }
                                       }
 
                                       @NonNull
@@ -158,9 +175,10 @@ public class EnterRoomActivity extends AppCompatActivity {
     static class MessageViewHolder extends RecyclerView.ViewHolder{
         TextView textView;
         TextView textView2;
-
+       // LinearLayout linearLayout;
          MessageViewHolder(@NonNull View itemView) {
             super(itemView);
+           // this.linearLayout=itemView.findViewById(R.id.li_message);
             this.textView = itemView.findViewById(R.id.tv_message);
             this.textView2 = itemView.findViewById(R.id.tv_nickname);
         }
